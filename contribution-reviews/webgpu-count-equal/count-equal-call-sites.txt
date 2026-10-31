@@ -1,0 +1,6 @@
+ggml/include/ggml.h:1084:    GGML_API struct ggml_tensor * ggml_count_equal(
+ggml/src/ggml-opt.cpp:442:        opt_ctx->ncorrect = ggml_count_equal(ctx_results, opt_ctx->pred, ggml_argmax(ctx_results, opt_ctx->labels));
+ggml/src/ggml-vulkan/ggml-vulkan-debug.cpp:1217:            tensor_clone = ggml_count_equal(ggml_ctx, src_clone[0], src_clone[1]);
+ggml/src/ggml.c:2582:struct ggml_tensor * ggml_count_equal(
+tests/test-backend-ops.cpp:3085:        ggml_tensor * out = ggml_count_equal(ctx, a_argmax, b_argmax);
+tests/test-backend-ops.cpp:3144:        ggml_tensor * out = ggml_count_equal(ctx, inputs[0], same_src ? inputs[0] : inputs[1]);

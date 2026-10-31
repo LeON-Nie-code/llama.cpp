@@ -1,0 +1,50 @@
+[
+  {
+    "model": "pocket",
+    "baseline": {
+      "mean_s": 0.408,
+      "sd_s": 0.004472135954999559,
+      "n": 5
+    },
+    "pr": {
+      "mean_s": 0.404,
+      "sd_s": 0.005477225575051635,
+      "n": 5
+    },
+    "speedup": 1.0099009900990097,
+    "pcm_identical": true,
+    "trace": "OP_TRACE graphs=248 nodes=15396 count_equal_nodes=0 count_equal_creations=0 webgpu_count_equal=0 cpu_count_equal=0"
+  },
+  {
+    "model": "qwen06",
+    "baseline": {
+      "mean_s": 10.44,
+      "sd_s": 0.10653637876331294,
+      "n": 5
+    },
+    "pr": {
+      "mean_s": 10.266,
+      "sd_s": 0.07765307463326897,
+      "n": 5
+    },
+    "speedup": 1.0169491525423728,
+    "pcm_identical": true,
+    "trace": "OP_TRACE graphs=12387 nodes=261546 count_equal_nodes=0 count_equal_creations=0 webgpu_count_equal=0 cpu_count_equal=0"
+  },
+  {
+    "model": "qwen17",
+    "baseline": {
+      "mean_s": 10.64,
+      "sd_s": 0.3426368339802359,
+      "n": 5
+    },
+    "pr": {
+      "mean_s": 10.434,
+      "sd_s": 0.14876155417311288,
+      "n": 5
+    },
+    "speedup": 1.019743147402722,
+    "pcm_identical": true,
+    "trace": "OP_TRACE graphs=12387 nodes=262634 count_equal_nodes=0 count_equal_creations=0 webgpu_count_equal=0 cpu_count_equal=0"
+  }
+]

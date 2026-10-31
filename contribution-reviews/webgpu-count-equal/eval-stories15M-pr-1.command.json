@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/home/leon/code/tmp/penguin/llama-webgpu-count-equal/fullmodel/eval-llm",
+    "/tmp/llama-count-equal-models/stories15M.gguf",
+    "/home/leon/code/tmp/penguin/llama-webgpu-count-equal/fullmodel/eval-stories15M-pr-1.pred.bin",
+    "6"
+  ],
+  "environment": {
+    "LD_LIBRARY_PATH": "/tmp/llama-count-equal-build/bin:/tmp/llama-dawn/lib64",
+    "LD_PRELOAD": "/home/leon/code/tmp/penguin/llama-webgpu-count-equal/fullmodel/driver-pin.so",
+    "VK_ICD_FILENAMES": "/usr/share/vulkan/icd.d/nvidia_icd.json",
+    "XDG_RUNTIME_DIR": "/tmp"
+  }
+}

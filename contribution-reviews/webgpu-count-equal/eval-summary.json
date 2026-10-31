@@ -1,0 +1,48 @@
+[
+  {
+    "model": "stories260K",
+    "baseline": {
+      "mean_ms": 17.7220111,
+      "sd_ms": 0.16105239981052832,
+      "n_processes": 5,
+      "epochs_per_process": 6
+    },
+    "pr": {
+      "mean_ms": 17.853505433333336,
+      "sd_ms": 0.49547701490713636,
+      "n_processes": 5,
+      "epochs_per_process": 6
+    },
+    "speedup": 0.9926348170769965,
+    "predictions_identical": true,
+    "loss_identical": true,
+    "accuracy_identical": true,
+    "traces": {
+      "pr": "OP_TRACE graphs=40 nodes=2624 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=8 cpu_count_equal=0",
+      "baseline": "OP_TRACE graphs=48 nodes=2624 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=0 cpu_count_equal=8"
+    }
+  },
+  {
+    "model": "stories15M",
+    "baseline": {
+      "mean_ms": 275.84514906666664,
+      "sd_ms": 2.4434487958750215,
+      "n_processes": 5,
+      "epochs_per_process": 6
+    },
+    "pr": {
+      "mean_ms": 274.7083024666667,
+      "sd_ms": 0.9101178515017752,
+      "n_processes": 5,
+      "epochs_per_process": 6
+    },
+    "speedup": 1.0041383772888988,
+    "predictions_identical": true,
+    "loss_identical": true,
+    "accuracy_identical": true,
+    "traces": {
+      "pr": "OP_TRACE graphs=40 nodes=3104 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=8 cpu_count_equal=0",
+      "baseline": "OP_TRACE graphs=48 nodes=3104 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=0 cpu_count_equal=8"
+    }
+  }
+]

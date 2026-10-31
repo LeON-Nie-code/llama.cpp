@@ -1,0 +1,47 @@
+[
+  {
+    "file": "stories15M.gguf",
+    "bytes": 98357920,
+    "sha256": "61b50d457809a5194818fd22e6724b456cd7bb9a6264c52c8110684c53f3704a"
+  },
+  {
+    "file": "stories260K.gguf",
+    "bytes": 1185376,
+    "sha256": "047bf46455a544931cff6fef14d7910154c56afbc23ab1c5e56a72e69912c04b"
+  },
+  {
+    "file": "Qwen3-TTS-12Hz-0.6B-Base.Q4_K_M.gguf",
+    "bytes": 361023168,
+    "sha256": "2dec66bcf1595f48a6dfb64c14e7e8437315e1606eba03094ed7372e60a4b9af"
+  },
+  {
+    "file": "Qwen3-TTS-12Hz-0.6B-Base.mmproj-Q8_0.gguf",
+    "bytes": 401129632,
+    "sha256": "202c1fbf3a0f00b7586ca45b8328d696cc6cd980c3798979eaa4fefe8efd8320"
+  },
+  {
+    "file": "Qwen3-TTS-12Hz-1.7B-Base-Q4_K_M.gguf",
+    "bytes": 1035965280,
+    "sha256": "8d18c94acb2addd042f97da63c98be144eafa76d0d9495177eab65130cf85129"
+  },
+  {
+    "file": "pocket-tts-en.gguf",
+    "bytes": 159390816,
+    "sha256": "9cca37ab8f3da366a1864919214fbd545f45609d8f1167d1fb302cebea515d63"
+  },
+  {
+    "file": "mmproj-Qwen3-TTS-12Hz-1.7B-Base-Q8_0.gguf",
+    "bytes": 446422912,
+    "sha256": "6fd65188839bcd6ecc91b277ad471e22a0edfada4699a0fe82f1165c18cfcce2"
+  },
+  {
+    "file": "mmproj-pocket-tts-en.gguf",
+    "bytes": 59858080,
+    "sha256": "ccb1b6a55a7df0d4f96adff04ae3b9cd99c070edc98f6c84af5adb6d46a64cfc"
+  },
+  {
+    "file": "reference.wav",
+    "bytes": 144078,
+    "sha256": "2099796eb80a619329db76bfc9b9c47598539f6a836e4f058380928f9b6ba30c"
+  }
+]
