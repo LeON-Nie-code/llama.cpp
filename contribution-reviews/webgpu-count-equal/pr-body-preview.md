@@ -6,7 +6,7 @@ Suggested title: `webgpu : add COUNT_EQUAL support`
 
 Add WebGPU support for `COUNT_EQUAL` with contiguous I32 inputs and an I64 scalar result. `ggml-opt` uses this operation to count correct token predictions after `ARGMAX`; it currently falls back to CPU.
 
-Inputs of up to 1024 elements use a single workgroup to reduce the comparisons and write the result. Larger inputs accumulate workgroup counts. The implementation reuses the existing buffer-binding and dispatch helpers and supports contiguous views, including overlapping inputs.
+Inputs with 1-1024 elements use a single workgroup to reduce the comparisons and write the result. Larger inputs accumulate workgroup counts. The implementation reuses the existing buffer-binding and dispatch helpers and supports contiguous views, including overlapping inputs.
 
 ## Additional information
 
