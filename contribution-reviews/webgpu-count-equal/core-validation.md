@@ -1,3 +1,5 @@
+> Historical evidence for the original `e3ded50` implementation, before the small-input fast path. See [current validation and benchmarks](small-input-optimization/README.md).
+
 # WebGPU COUNT_EQUAL 本地实现与验证
 
 用户本轮已授权修改个人 fork。实现现已提交并推送到 LeON-Nie-code/llama.cpp 的 preview/webgpu-count-equal 分支，提交 e3ded50f4b2dea3e50d5f6f3f7ce594f5047096f。没有向官方仓库创建 PR、issue 或发表评论。

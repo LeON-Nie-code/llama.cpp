@@ -1,0 +1,13 @@
+[  0%] Generating generated/ggml-wgsl-shaders.hpp
+[ 25%] Built target ggml-base
+Embedding WGSL shaders to ggml-wgsl-shaders.hpp
+[ 75%] Built target ggml-cpu
+[ 75%] Built target generate_shaders
+[ 75%] Building CXX object ggml/src/ggml-webgpu/CMakeFiles/ggml-webgpu.dir/ggml-webgpu.cpp.o
+[ 75%] Linking CXX shared library ../../../bin/libggml-webgpu.so
+[ 87%] Built target ggml-webgpu
+[ 87%] Linking CXX shared library ../../bin/libggml.so
+[100%] Built target ggml
+[100%] Building CXX object tests/CMakeFiles/test-backend-ops.dir/test-backend-ops.cpp.o
+[100%] Linking CXX executable ../bin/test-backend-ops
+[100%] Built target test-backend-ops

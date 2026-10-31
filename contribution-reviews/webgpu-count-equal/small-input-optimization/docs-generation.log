@@ -1,0 +1,20 @@
+INFO:__main__:Parsing GGML operation support files...
+INFO:__main__:Parsing support files from docs/ops...
+INFO:__main__:  Reading: WebGPU.csv
+INFO:__main__:  Reading: OpenCL.csv
+INFO:__main__:  Reading: zDNN.csv
+INFO:__main__:  Reading: ZenDNN.csv
+INFO:__main__:  Reading: Vulkan.csv
+INFO:__main__:  Reading: SYCL.csv
+INFO:__main__:  Reading: Metal.csv
+INFO:__main__:  Reading: Hexagon.csv
+INFO:__main__:  Reading: ET.csv
+INFO:__main__:  Reading: CUDA.csv
+INFO:__main__:  Reading: CPU.csv
+INFO:__main__:  Reading: CANN.csv
+INFO:__main__:  Reading: BLAS.csv
+INFO:__main__:Found 118 operations across 13 backends
+INFO:__main__:Generating markdown...
+INFO:__main__:Generated: docs/ops.md
+INFO:__main__:Operations: 118
+INFO:__main__:Backends: 13

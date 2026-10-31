@@ -1,0 +1,147 @@
+[
+  {
+    "model": "stories260K",
+    "context": 256,
+    "tokens": 4096,
+    "count_equal_calls_per_epoch": 16,
+    "traces": {
+      "upstream": "OP_TRACE graphs=192 nodes=10496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=0 cpu_count_equal=32",
+      "before": "OP_TRACE graphs=160 nodes=10496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=32 cpu_count_equal=0",
+      "optimized": "OP_TRACE graphs=160 nodes=10496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=32 cpu_count_equal=0"
+    },
+    "results_identical": true,
+    "upstream": {
+      "mean_ms": 70.5134108,
+      "sd_ms": 0.7797493920694666,
+      "processes": 5
+    },
+    "before": {
+      "mean_ms": 70.250568,
+      "sd_ms": 0.7651908332138458,
+      "processes": 5
+    },
+    "optimized": {
+      "mean_ms": 70.0085718,
+      "sd_ms": 0.20976238344779186,
+      "processes": 5
+    },
+    "speedup_vs_upstream": 1.0072111026838575,
+    "speedup_vs_before": 1.0034566652879497
+  },
+  {
+    "model": "smol135",
+    "context": 256,
+    "tokens": 4096,
+    "count_equal_calls_per_epoch": 16,
+    "traces": {
+      "upstream": "OP_TRACE graphs=192 nodes=58496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=0 cpu_count_equal=32",
+      "before": "OP_TRACE graphs=160 nodes=58496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=32 cpu_count_equal=0",
+      "optimized": "OP_TRACE graphs=160 nodes=58496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=32 cpu_count_equal=0"
+    },
+    "results_identical": true,
+    "upstream": {
+      "mean_ms": 2214.3187576,
+      "sd_ms": 44.785346027776775,
+      "processes": 5
+    },
+    "before": {
+      "mean_ms": 2179.2568034,
+      "sd_ms": 34.17304763009387,
+      "processes": 5
+    },
+    "optimized": {
+      "mean_ms": 2171.3604078,
+      "sd_ms": 20.099888027643512,
+      "processes": 5
+    },
+    "speedup_vs_upstream": 1.019784071610445,
+    "speedup_vs_before": 1.003636612131102
+  },
+  {
+    "model": "smol135",
+    "context": 1024,
+    "tokens": 4096,
+    "count_equal_calls_per_epoch": 4,
+    "traces": {
+      "upstream": "OP_TRACE graphs=48 nodes=14624 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=0 cpu_count_equal=8",
+      "before": "OP_TRACE graphs=40 nodes=14624 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=8 cpu_count_equal=0",
+      "optimized": "OP_TRACE graphs=40 nodes=14624 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=8 cpu_count_equal=0"
+    },
+    "results_identical": true,
+    "upstream": {
+      "mean_ms": 1947.1422358,
+      "sd_ms": 6.389688401766941,
+      "processes": 5
+    },
+    "before": {
+      "mean_ms": 1937.6774992,
+      "sd_ms": 7.8082089902876755,
+      "processes": 5
+    },
+    "optimized": {
+      "mean_ms": 1955.0548778,
+      "sd_ms": 22.895993639422777,
+      "processes": 5
+    },
+    "speedup_vs_upstream": 0.9959527263966605,
+    "speedup_vs_before": 0.9911115647968131
+  },
+  {
+    "model": "qwen05",
+    "context": 256,
+    "tokens": 4096,
+    "count_equal_calls_per_epoch": 16,
+    "traces": {
+      "upstream": "OP_TRACE graphs=192 nodes=51584 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=0 cpu_count_equal=32",
+      "before": "OP_TRACE graphs=160 nodes=51584 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=32 cpu_count_equal=0",
+      "optimized": "OP_TRACE graphs=160 nodes=51584 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=32 cpu_count_equal=0"
+    },
+    "results_identical": true,
+    "upstream": {
+      "mean_ms": 6135.143945,
+      "sd_ms": 268.1343187995031,
+      "processes": 5
+    },
+    "before": {
+      "mean_ms": 6035.1501538,
+      "sd_ms": 226.29100262085524,
+      "processes": 5
+    },
+    "optimized": {
+      "mean_ms": 6063.8403554,
+      "sd_ms": 315.98388021592206,
+      "processes": 5
+    },
+    "speedup_vs_upstream": 1.011758817089652,
+    "speedup_vs_before": 0.9952686416662586
+  },
+  {
+    "model": "qwen05",
+    "context": 1024,
+    "tokens": 4096,
+    "count_equal_calls_per_epoch": 4,
+    "traces": {
+      "upstream": "OP_TRACE graphs=48 nodes=12896 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=0 cpu_count_equal=8",
+      "before": "OP_TRACE graphs=40 nodes=12896 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=8 cpu_count_equal=0",
+      "optimized": "OP_TRACE graphs=40 nodes=12896 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=8 cpu_count_equal=0"
+    },
+    "results_identical": true,
+    "upstream": {
+      "mean_ms": 5699.7698228,
+      "sd_ms": 74.2734799345069,
+      "processes": 5
+    },
+    "before": {
+      "mean_ms": 5615.991541,
+      "sd_ms": 87.7044756163127,
+      "processes": 5
+    },
+    "optimized": {
+      "mean_ms": 5735.8159586,
+      "sd_ms": 101.02669768770598,
+      "processes": 5
+    },
+    "speedup_vs_upstream": 0.9937156045347036,
+    "speedup_vs_before": 0.9791094382272951
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/tmp/llama-count-equal-build/bin/test-backend-ops",
+    "perf",
+    "-b",
+    "WebGPU",
+    "-o",
+    "COUNT_EQUAL"
+  ],
+  "environment": {
+    "LD_LIBRARY_PATH": "/tmp/llama-count-equal-original-backend:/tmp/llama-count-equal-build/bin",
+    "VK_ICD_FILENAMES": "/usr/share/vulkan/icd.d/nvidia_icd.json",
+    "XDG_RUNTIME_DIR": "/tmp"
+  }
+}

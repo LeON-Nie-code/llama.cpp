@@ -1,3 +1,5 @@
+> Historical evidence for the original `e3ded50` implementation, before the small-input fast path. See [current validation and benchmarks](../small-input-optimization/README.md).
+
 # Why COUNT_EQUAL did not noticeably accelerate full-model validation
 
 The relevant bottleneck is the fraction of end-to-end work that changes. COUNT_EQUAL compares one predicted token ID against one label ID per token position. At batch 256 it compares 256 I32 pairs, reading 2048 bytes. It does not process every vocabulary logit or run in every transformer layer.
@@ -53,9 +55,9 @@ The supported claim is correct WebGPU operator coverage and one fewer backend su
 
 Source evidence in the implementation branch:
 
-- [Accuracy graph construction](https://github.com/LeON-Nie-code/llama.cpp/blob/preview/webgpu-count-equal/ggml/src/ggml-opt.cpp#L436)
-- [CPU-side result collection](https://github.com/LeON-Nie-code/llama.cpp/blob/preview/webgpu-count-equal/ggml/src/ggml-opt.cpp#L850)
-- [Dense label initialization](https://github.com/LeON-Nie-code/llama.cpp/blob/preview/webgpu-count-equal/src/llama-context.cpp#L3970)
-- [WebGPU COUNT_EQUAL dispatches](https://github.com/LeON-Nie-code/llama.cpp/blob/preview/webgpu-count-equal/ggml/src/ggml-webgpu/ggml-webgpu.cpp#L3050)
+- [Accuracy graph construction](https://github.com/LeON-Nie-code/llama.cpp/blob/e3ded50f4b2dea3e50d5f6f3f7ce594f5047096f/ggml/src/ggml-opt.cpp#L436)
+- [CPU-side result collection](https://github.com/LeON-Nie-code/llama.cpp/blob/e3ded50f4b2dea3e50d5f6f3f7ce594f5047096f/ggml/src/ggml-opt.cpp#L850)
+- [Dense label initialization](https://github.com/LeON-Nie-code/llama.cpp/blob/e3ded50f4b2dea3e50d5f6f3f7ce594f5047096f/src/llama-context.cpp#L3970)
+- [WebGPU COUNT_EQUAL dispatches](https://github.com/LeON-Nie-code/llama.cpp/blob/e3ded50f4b2dea3e50d5f6f3f7ce594f5047096f/ggml/src/ggml-webgpu/ggml-webgpu.cpp#L3050)
 
 Raw observations: results.json, matching model-variant.log files, and the actual command/environment JSONs. Instrumentation source: phases.cpp and eval-phases.cpp. No implementation change was made for this diagnosis.

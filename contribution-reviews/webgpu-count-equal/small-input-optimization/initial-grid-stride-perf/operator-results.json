@@ -1,0 +1,254 @@
+[
+  {
+    "variant": "before",
+    "trial": 0,
+    "n": 256,
+    "runs": 73728,
+    "us": 14.67
+  },
+  {
+    "variant": "before",
+    "trial": 0,
+    "n": 1024,
+    "runs": 73728,
+    "us": 14.54
+  },
+  {
+    "variant": "before",
+    "trial": 0,
+    "n": 1025,
+    "runs": 73728,
+    "us": 14.49
+  },
+  {
+    "variant": "before",
+    "trial": 0,
+    "n": 4096,
+    "runs": 73728,
+    "us": 14.42
+  },
+  {
+    "variant": "before",
+    "trial": 0,
+    "n": 65536,
+    "runs": 73728,
+    "us": 14.43
+  },
+  {
+    "variant": "before",
+    "trial": 0,
+    "n": 1048576,
+    "runs": 45056,
+    "us": 23.43
+  },
+  {
+    "variant": "optimized",
+    "trial": 0,
+    "n": 256,
+    "runs": 131072,
+    "us": 8.02
+  },
+  {
+    "variant": "optimized",
+    "trial": 0,
+    "n": 1024,
+    "runs": 131072,
+    "us": 8.02
+  },
+  {
+    "variant": "optimized",
+    "trial": 0,
+    "n": 1025,
+    "runs": 73728,
+    "us": 14.73
+  },
+  {
+    "variant": "optimized",
+    "trial": 0,
+    "n": 4096,
+    "runs": 73728,
+    "us": 14.85
+  },
+  {
+    "variant": "optimized",
+    "trial": 0,
+    "n": 65536,
+    "runs": 73728,
+    "us": 14.76
+  },
+  {
+    "variant": "optimized",
+    "trial": 0,
+    "n": 1048576,
+    "runs": 45056,
+    "us": 23.78
+  },
+  {
+    "variant": "optimized",
+    "trial": 1,
+    "n": 256,
+    "runs": 131072,
+    "us": 8.01
+  },
+  {
+    "variant": "optimized",
+    "trial": 1,
+    "n": 1024,
+    "runs": 131072,
+    "us": 7.98
+  },
+  {
+    "variant": "optimized",
+    "trial": 1,
+    "n": 1025,
+    "runs": 73728,
+    "us": 14.64
+  },
+  {
+    "variant": "optimized",
+    "trial": 1,
+    "n": 4096,
+    "runs": 73728,
+    "us": 14.8
+  },
+  {
+    "variant": "optimized",
+    "trial": 1,
+    "n": 65536,
+    "runs": 73728,
+    "us": 14.71
+  },
+  {
+    "variant": "optimized",
+    "trial": 1,
+    "n": 1048576,
+    "runs": 45056,
+    "us": 23.5
+  },
+  {
+    "variant": "before",
+    "trial": 1,
+    "n": 256,
+    "runs": 73728,
+    "us": 14.19
+  },
+  {
+    "variant": "before",
+    "trial": 1,
+    "n": 1024,
+    "runs": 73728,
+    "us": 14.07
+  },
+  {
+    "variant": "before",
+    "trial": 1,
+    "n": 1025,
+    "runs": 73728,
+    "us": 14.11
+  },
+  {
+    "variant": "before",
+    "trial": 1,
+    "n": 4096,
+    "runs": 73728,
+    "us": 14.1
+  },
+  {
+    "variant": "before",
+    "trial": 1,
+    "n": 65536,
+    "runs": 73728,
+    "us": 14.09
+  },
+  {
+    "variant": "before",
+    "trial": 1,
+    "n": 1048576,
+    "runs": 45056,
+    "us": 23.14
+  },
+  {
+    "variant": "before",
+    "trial": 2,
+    "n": 256,
+    "runs": 65536,
+    "us": 15.95
+  },
+  {
+    "variant": "before",
+    "trial": 2,
+    "n": 1024,
+    "runs": 73728,
+    "us": 14.73
+  },
+  {
+    "variant": "before",
+    "trial": 2,
+    "n": 1025,
+    "runs": 73728,
+    "us": 14.85
+  },
+  {
+    "variant": "before",
+    "trial": 2,
+    "n": 4096,
+    "runs": 73728,
+    "us": 14.74
+  },
+  {
+    "variant": "before",
+    "trial": 2,
+    "n": 65536,
+    "runs": 73728,
+    "us": 14.78
+  },
+  {
+    "variant": "before",
+    "trial": 2,
+    "n": 1048576,
+    "runs": 45056,
+    "us": 23.13
+  },
+  {
+    "variant": "optimized",
+    "trial": 2,
+    "n": 256,
+    "runs": 131072,
+    "us": 7.98
+  },
+  {
+    "variant": "optimized",
+    "trial": 2,
+    "n": 1024,
+    "runs": 131072,
+    "us": 8.0
+  },
+  {
+    "variant": "optimized",
+    "trial": 2,
+    "n": 1025,
+    "runs": 73728,
+    "us": 14.42
+  },
+  {
+    "variant": "optimized",
+    "trial": 2,
+    "n": 4096,
+    "runs": 73728,
+    "us": 14.61
+  },
+  {
+    "variant": "optimized",
+    "trial": 2,
+    "n": 65536,
+    "runs": 73728,
+    "us": 14.47
+  },
+  {
+    "variant": "optimized",
+    "trial": 2,
+    "n": 1048576,
+    "runs": 45056,
+    "us": 23.16
+  }
+]

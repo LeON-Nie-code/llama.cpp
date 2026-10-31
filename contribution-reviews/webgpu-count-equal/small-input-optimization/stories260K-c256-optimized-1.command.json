@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "/home/leon/code/tmp/penguin/llama-webgpu-count-equal/small-input-optimization/eval-llm",
+    "/tmp/llama-count-equal-models/stories260K.gguf",
+    "/home/leon/code/tmp/penguin/llama-webgpu-count-equal/small-input-optimization/stories260K-c256-optimized-1.bin",
+    "1",
+    "256",
+    "16",
+    "/tmp/llama-count-equal-models/frequent/wikitext-2-raw/wiki.valid.raw"
+  ],
+  "environment": {
+    "LD_LIBRARY_PATH": "/tmp/llama-count-equal-build/bin:/tmp/llama-dawn/lib64",
+    "LD_PRELOAD": "/home/leon/code/tmp/penguin/llama-webgpu-count-equal/fullmodel/driver-pin.so",
+    "VK_ICD_FILENAMES": "/usr/share/vulkan/icd.d/nvidia_icd.json",
+    "XDG_RUNTIME_DIR": "/tmp"
+  }
+}

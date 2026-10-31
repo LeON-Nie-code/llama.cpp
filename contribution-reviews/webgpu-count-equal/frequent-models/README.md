@@ -1,3 +1,5 @@
+> Historical evidence for the original `e3ded50` implementation, before the small-input fast path. See [current validation and benchmarks](../small-input-optimization/README.md).
+
 # Complete models that actually execute COUNT_EQUAL
 
 This report focuses only on full-model workflows that run COUNT_EQUAL. All three selected models perform token accuracy calculation through the existing llama_opt_epoch forward validation path. No ordinary generation timings are used as evidence for COUNT_EQUAL performance.
