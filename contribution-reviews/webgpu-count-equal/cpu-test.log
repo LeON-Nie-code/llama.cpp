@@ -1,0 +1,41 @@
+Warning: loader_scanned_icd_add: Could not get 'vkCreateInstance' via 'vk_icdGetInstanceProcAddr' for ICD libGLX_nvidia.so.0
+Warning: maxDynamicUniformBuffersPerPipelineLayout artificially reduced from 1000000 to 16 to fit dynamic offset allocation limit.
+Warning: maxDynamicStorageBuffersPerPipelineLayout artificially reduced from 1000000 to 16 to fit dynamic offset allocation limit.
+Failed to create /home/leon/.cache/mesa_shader_cache for shader cache (Read-only file system)---disabling.
+Failed to create /home/leon/.cache/mesa_shader_cache_db for shader cache (Read-only file system)---disabling.
+ggml_webgpu: adapter_info: vendor_id: 65541 | vendor: mesa | architecture: software | device_id: 0 | name: llvmpipe (LLVM 19.1.7, 256 bits) | device_desc: llvmpipe: Mesa 25.0.7-2+deb13u1 (LLVM 19.1.7) 0.0.1
+Testing 2 devices
+
+Backend 1/2: WebGPU
+  Skipping
+Backend 2/2: CPU
+  Device description: Intel(R) Xeon(R) CPU @ 2.20GHz
+  Device memory: 48178 MB (48178 MB free)
+
+  COUNT_EQUAL(type=f32,ne=[4,500,1,1]): [1;32mOK[0m
+  COUNT_EQUAL(type=f32,ne=[4,5000,1,1]): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1,1,1,1],match_every=0,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1,1,1,1],match_every=1,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1,1,1,1],match_every=3,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[255,1,1,1],match_every=0,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[255,1,1,1],match_every=1,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[255,1,1,1],match_every=3,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[256,1,1,1],match_every=0,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[256,1,1,1],match_every=1,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[256,1,1,1],match_every=3,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[257,1,1,1],match_every=0,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[257,1,1,1],match_every=1,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[257,1,1,1],match_every=3,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1025,1,1,1],match_every=0,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1025,1,1,1],match_every=1,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1025,1,1,1],match_every=3,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[65537,1,1,1],match_every=0,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[65537,1,1,1],match_every=1,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[65537,1,1,1],match_every=3,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[257,3,1,1],match_every=3,v=1,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[17,5,1,1],match_every=1,v=1,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[257,1,1,1],match_every=1,v=1,same_src=1): [1;32mOK[0m
+  23/23 tests passed
+  Backend CPU: [1;32mOK[0m
+2/2 backends passed
+[1;32mOK[0m

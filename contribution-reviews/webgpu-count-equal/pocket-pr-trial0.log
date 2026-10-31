@@ -1,0 +1,21 @@
+0.00.308.009 W load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect
+0.00.483.297 I cmn          init: llama threadpool init, n_threads = 2
+0.00.648.061 W init_audio: audio input is in experimental stage and may have reduced quality:
+    https://github.com/ggml-org/llama.cpp/discussions/13759
+0.00.789.571 W init: embeddings required but some input tokens were not marked as outputs -> overriding
+0.00.824.639 W warmup: *****************************************************************
+0.00.824.649 W warmup: WARNING: the CLIP graph uses unsupported operators by the backend
+0.00.824.649 W warmup:          the performance will be suboptimal                      
+0.00.824.650 W warmup:          list of unsupported ops (backend=WebGPU: WebGPU):
+0.00.824.652 W warmup:             MEAN: type = f32, ne = [1 1 1 1]
+0.00.824.653 W warmup:             MEAN: type = f32, ne = [1 1 1 1]
+0.00.824.654 W warmup:             MEAN: type = f32, ne = [1 1 1 1]
+0.00.824.654 W warmup:             MEAN: type = f32, ne = [1 1 1 1]
+0.00.824.655 W warmup: flash attention is enabled
+0.00.824.655 W warmup: please report this on github as an issue
+0.00.824.655 W warmup: ref: https://github.com/ggml-org/llama.cpp/pull/16837#issuecomment-3461676118
+0.00.824.655 W warmup: *****************************************************************
+0.01.186.314 I generated 16 frames, 61484 bytes of WAV audio (24000 Hz)
+0.01.186.326 I timings: prompt eval 0.03s + generation 0.36s + vocoder 0.00s = total 0.40s
+0.01.186.326 I          output audio = 1.28s (audio time = 3.23x process time)
+0.01.186.462 I wrote /home/leon/code/tmp/penguin/llama-webgpu-count-equal/fullmodel/pocket-pr-trial0.wav

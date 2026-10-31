@@ -1,0 +1,89 @@
+{"model": "pocket", "variant": "pr", "trial": -2, "wall_s": 1.3493835309054703, "prompt_s": 0.04, "generation_s": 0.36, "vocoder_s": 0.0, "inference_s": 0.4, "audio_s": 1.28, "pcm_sha256": "5f59a2c7225836ae49e2927a4472d460c225a63a8b969f52479744a545968423", "trace": "OP_TRACE graphs=248 nodes=15396 count_equal_nodes=0 count_equal_creations=0 webgpu_count_equal=0 cpu_count_equal=0"}
+{"model": "pocket", "variant": "pr", "trial": -1, "wall_s": 1.3508873810060322, "prompt_s": 0.04, "generation_s": 0.36, "vocoder_s": 0.0, "inference_s": 0.4, "audio_s": 1.28, "pcm_sha256": "5f59a2c7225836ae49e2927a4472d460c225a63a8b969f52479744a545968423"}
+{"model": "pocket", "variant": "baseline", "trial": -1, "wall_s": 1.3545886781066656, "prompt_s": 0.04, "generation_s": 0.37, "vocoder_s": 0.0, "inference_s": 0.41, "audio_s": 1.28, "pcm_sha256": "5f59a2c7225836ae49e2927a4472d460c225a63a8b969f52479744a545968423"}
+{"model": "pocket", "variant": "baseline", "trial": 0, "wall_s": 1.3223105210345238, "prompt_s": 0.04, "generation_s": 0.36, "vocoder_s": 0.0, "inference_s": 0.4, "audio_s": 1.28, "pcm_sha256": "5f59a2c7225836ae49e2927a4472d460c225a63a8b969f52479744a545968423"}
+{"model": "pocket", "variant": "pr", "trial": 0, "wall_s": 1.3188896959181875, "prompt_s": 0.03, "generation_s": 0.36, "vocoder_s": 0.0, "inference_s": 0.4, "audio_s": 1.28, "pcm_sha256": "5f59a2c7225836ae49e2927a4472d460c225a63a8b969f52479744a545968423"}
+{"model": "pocket", "variant": "pr", "trial": 1, "wall_s": 1.3377616710495204, "prompt_s": 0.04, "generation_s": 0.38, "vocoder_s": 0.0, "inference_s": 0.41, "audio_s": 1.28, "pcm_sha256": "5f59a2c7225836ae49e2927a4472d460c225a63a8b969f52479744a545968423"}
+{"model": "pocket", "variant": "baseline", "trial": 1, "wall_s": 1.3619730030186474, "prompt_s": 0.04, "generation_s": 0.37, "vocoder_s": 0.0, "inference_s": 0.41, "audio_s": 1.28, "pcm_sha256": "5f59a2c7225836ae49e2927a4472d460c225a63a8b969f52479744a545968423"}
+{"model": "pocket", "variant": "baseline", "trial": 2, "wall_s": 1.3393751890398562, "prompt_s": 0.04, "generation_s": 0.38, "vocoder_s": 0.0, "inference_s": 0.41, "audio_s": 1.28, "pcm_sha256": "5f59a2c7225836ae49e2927a4472d460c225a63a8b969f52479744a545968423"}
+{"model": "pocket", "variant": "pr", "trial": 2, "wall_s": 1.318162419833243, "prompt_s": 0.04, "generation_s": 0.36, "vocoder_s": 0.0, "inference_s": 0.4, "audio_s": 1.28, "pcm_sha256": "5f59a2c7225836ae49e2927a4472d460c225a63a8b969f52479744a545968423"}
+{"model": "pocket", "variant": "pr", "trial": 3, "wall_s": 1.3305867619346827, "prompt_s": 0.04, "generation_s": 0.37, "vocoder_s": 0.0, "inference_s": 0.41, "audio_s": 1.28, "pcm_sha256": "5f59a2c7225836ae49e2927a4472d460c225a63a8b969f52479744a545968423"}
+{"model": "pocket", "variant": "baseline", "trial": 3, "wall_s": 1.341176874935627, "prompt_s": 0.04, "generation_s": 0.37, "vocoder_s": 0.0, "inference_s": 0.41, "audio_s": 1.28, "pcm_sha256": "5f59a2c7225836ae49e2927a4472d460c225a63a8b969f52479744a545968423"}
+{"model": "pocket", "variant": "baseline", "trial": 4, "wall_s": 1.329673448111862, "prompt_s": 0.04, "generation_s": 0.37, "vocoder_s": 0.0, "inference_s": 0.41, "audio_s": 1.28, "pcm_sha256": "5f59a2c7225836ae49e2927a4472d460c225a63a8b969f52479744a545968423"}
+{"model": "pocket", "variant": "pr", "trial": 4, "wall_s": 1.347430351190269, "prompt_s": 0.04, "generation_s": 0.36, "vocoder_s": 0.0, "inference_s": 0.4, "audio_s": 1.28, "pcm_sha256": "5f59a2c7225836ae49e2927a4472d460c225a63a8b969f52479744a545968423"}
+{"model": "qwen06", "variant": "pr", "trial": -2, "wall_s": 12.771640648134053, "prompt_s": 0.13, "generation_s": 8.98, "vocoder_s": 1.13, "inference_s": 10.24, "audio_s": 1.28, "pcm_sha256": "eebd35eef02b3b0de09eb169e67baee5a3bbd7601a9fca47b355f1af89e76f13", "trace": "OP_TRACE graphs=12387 nodes=261546 count_equal_nodes=0 count_equal_creations=0 webgpu_count_equal=0 cpu_count_equal=0"}
+{"model": "qwen06", "variant": "pr", "trial": -1, "wall_s": 13.290085597895086, "prompt_s": 0.15, "generation_s": 9.38, "vocoder_s": 1.22, "inference_s": 10.75, "audio_s": 1.28, "pcm_sha256": "eebd35eef02b3b0de09eb169e67baee5a3bbd7601a9fca47b355f1af89e76f13"}
+{"model": "qwen06", "variant": "baseline", "trial": -1, "wall_s": 12.962888665962964, "prompt_s": 0.13, "generation_s": 9.24, "vocoder_s": 1.09, "inference_s": 10.46, "audio_s": 1.28, "pcm_sha256": "eebd35eef02b3b0de09eb169e67baee5a3bbd7601a9fca47b355f1af89e76f13"}
+{"model": "qwen06", "variant": "baseline", "trial": 0, "wall_s": 12.945866231108084, "prompt_s": 0.13, "generation_s": 9.2, "vocoder_s": 1.11, "inference_s": 10.43, "audio_s": 1.28, "pcm_sha256": "eebd35eef02b3b0de09eb169e67baee5a3bbd7601a9fca47b355f1af89e76f13"}
+{"model": "qwen06", "variant": "pr", "trial": 0, "wall_s": 12.768297725124285, "prompt_s": 0.13, "generation_s": 8.96, "vocoder_s": 1.17, "inference_s": 10.27, "audio_s": 1.28, "pcm_sha256": "eebd35eef02b3b0de09eb169e67baee5a3bbd7601a9fca47b355f1af89e76f13"}
+{"model": "qwen06", "variant": "pr", "trial": 1, "wall_s": 12.892236944986507, "prompt_s": 0.13, "generation_s": 9.14, "vocoder_s": 1.11, "inference_s": 10.39, "audio_s": 1.28, "pcm_sha256": "eebd35eef02b3b0de09eb169e67baee5a3bbd7601a9fca47b355f1af89e76f13"}
+{"model": "qwen06", "variant": "baseline", "trial": 1, "wall_s": 12.92728074407205, "prompt_s": 0.13, "generation_s": 9.15, "vocoder_s": 1.14, "inference_s": 10.42, "audio_s": 1.28, "pcm_sha256": "eebd35eef02b3b0de09eb169e67baee5a3bbd7601a9fca47b355f1af89e76f13"}
+{"model": "qwen06", "variant": "baseline", "trial": 2, "wall_s": 13.00309538305737, "prompt_s": 0.13, "generation_s": 9.2, "vocoder_s": 1.17, "inference_s": 10.51, "audio_s": 1.28, "pcm_sha256": "eebd35eef02b3b0de09eb169e67baee5a3bbd7601a9fca47b355f1af89e76f13"}
+{"model": "qwen06", "variant": "pr", "trial": 2, "wall_s": 12.743886573938653, "prompt_s": 0.13, "generation_s": 8.97, "vocoder_s": 1.15, "inference_s": 10.26, "audio_s": 1.28, "pcm_sha256": "eebd35eef02b3b0de09eb169e67baee5a3bbd7601a9fca47b355f1af89e76f13"}
+{"model": "qwen06", "variant": "pr", "trial": 3, "wall_s": 12.705445077968761, "prompt_s": 0.13, "generation_s": 8.9, "vocoder_s": 1.14, "inference_s": 10.18, "audio_s": 1.28, "pcm_sha256": "eebd35eef02b3b0de09eb169e67baee5a3bbd7601a9fca47b355f1af89e76f13"}
+{"model": "qwen06", "variant": "baseline", "trial": 3, "wall_s": 13.054780302103609, "prompt_s": 0.13, "generation_s": 9.31, "vocoder_s": 1.12, "inference_s": 10.56, "audio_s": 1.28, "pcm_sha256": "eebd35eef02b3b0de09eb169e67baee5a3bbd7601a9fca47b355f1af89e76f13"}
+{"model": "qwen06", "variant": "baseline", "trial": 4, "wall_s": 12.790259397123009, "prompt_s": 0.13, "generation_s": 9.03, "vocoder_s": 1.12, "inference_s": 10.28, "audio_s": 1.28, "pcm_sha256": "eebd35eef02b3b0de09eb169e67baee5a3bbd7601a9fca47b355f1af89e76f13"}
+{"model": "qwen06", "variant": "pr", "trial": 4, "wall_s": 12.713458596961573, "prompt_s": 0.13, "generation_s": 9.01, "vocoder_s": 1.08, "inference_s": 10.23, "audio_s": 1.28, "pcm_sha256": "eebd35eef02b3b0de09eb169e67baee5a3bbd7601a9fca47b355f1af89e76f13"}
+{"model": "qwen17", "variant": "pr", "trial": -2, "wall_s": 14.181523766135797, "prompt_s": 0.18, "generation_s": 9.04, "vocoder_s": 1.07, "inference_s": 10.3, "audio_s": 1.28, "pcm_sha256": "025d84b5381d5f5a08db11fdea365b3c5022cba12a2dd7ae6a94d1df750c35e2", "trace": "OP_TRACE graphs=12387 nodes=262634 count_equal_nodes=0 count_equal_creations=0 webgpu_count_equal=0 cpu_count_equal=0"}
+{"model": "qwen17", "variant": "pr", "trial": -1, "wall_s": 14.48910594987683, "prompt_s": 0.17, "generation_s": 9.24, "vocoder_s": 1.21, "inference_s": 10.63, "audio_s": 1.28, "pcm_sha256": "025d84b5381d5f5a08db11fdea365b3c5022cba12a2dd7ae6a94d1df750c35e2"}
+{"model": "qwen17", "variant": "baseline", "trial": -1, "wall_s": 14.09973388700746, "prompt_s": 0.19, "generation_s": 8.93, "vocoder_s": 1.1, "inference_s": 10.21, "audio_s": 1.28, "pcm_sha256": "025d84b5381d5f5a08db11fdea365b3c5022cba12a2dd7ae6a94d1df750c35e2"}
+{"model": "qwen17", "variant": "baseline", "trial": 0, "wall_s": 14.311763025121763, "prompt_s": 0.18, "generation_s": 9.17, "vocoder_s": 1.09, "inference_s": 10.44, "audio_s": 1.28, "pcm_sha256": "025d84b5381d5f5a08db11fdea365b3c5022cba12a2dd7ae6a94d1df750c35e2"}
+{"model": "qwen17", "variant": "pr", "trial": 0, "wall_s": 14.542761602904648, "prompt_s": 0.32, "generation_s": 9.23, "vocoder_s": 1.1, "inference_s": 10.65, "audio_s": 1.28, "pcm_sha256": "025d84b5381d5f5a08db11fdea365b3c5022cba12a2dd7ae6a94d1df750c35e2"}
+{"model": "qwen17", "variant": "pr", "trial": 1, "wall_s": 14.332534373970702, "prompt_s": 0.18, "generation_s": 9.11, "vocoder_s": 1.13, "inference_s": 10.42, "audio_s": 1.28, "pcm_sha256": "025d84b5381d5f5a08db11fdea365b3c5022cba12a2dd7ae6a94d1df750c35e2"}
+{"model": "qwen17", "variant": "baseline", "trial": 1, "wall_s": 15.199284475995228, "prompt_s": 0.32, "generation_s": 9.65, "vocoder_s": 1.23, "inference_s": 11.2, "audio_s": 1.28, "pcm_sha256": "025d84b5381d5f5a08db11fdea365b3c5022cba12a2dd7ae6a94d1df750c35e2"}
+{"model": "qwen17", "variant": "baseline", "trial": 2, "wall_s": 14.497776569100097, "prompt_s": 0.36, "generation_s": 9.17, "vocoder_s": 1.09, "inference_s": 10.62, "audio_s": 1.28, "pcm_sha256": "025d84b5381d5f5a08db11fdea365b3c5022cba12a2dd7ae6a94d1df750c35e2"}
+{"model": "qwen17", "variant": "pr", "trial": 2, "wall_s": 14.067617195891216, "prompt_s": 0.18, "generation_s": 8.97, "vocoder_s": 1.07, "inference_s": 10.23, "audio_s": 1.28, "pcm_sha256": "025d84b5381d5f5a08db11fdea365b3c5022cba12a2dd7ae6a94d1df750c35e2"}
+{"model": "qwen17", "variant": "pr", "trial": 3, "wall_s": 14.324393216054887, "prompt_s": 0.18, "generation_s": 9.16, "vocoder_s": 1.09, "inference_s": 10.43, "audio_s": 1.28, "pcm_sha256": "025d84b5381d5f5a08db11fdea365b3c5022cba12a2dd7ae6a94d1df750c35e2"}
+{"model": "qwen17", "variant": "baseline", "trial": 3, "wall_s": 14.535429075127468, "prompt_s": 0.18, "generation_s": 9.38, "vocoder_s": 1.08, "inference_s": 10.64, "audio_s": 1.28, "pcm_sha256": "025d84b5381d5f5a08db11fdea365b3c5022cba12a2dd7ae6a94d1df750c35e2"}
+{"model": "qwen17", "variant": "baseline", "trial": 4, "wall_s": 14.199799668043852, "prompt_s": 0.18, "generation_s": 9.04, "vocoder_s": 1.07, "inference_s": 10.3, "audio_s": 1.28, "pcm_sha256": "025d84b5381d5f5a08db11fdea365b3c5022cba12a2dd7ae6a94d1df750c35e2"}
+{"model": "qwen17", "variant": "pr", "trial": 4, "wall_s": 14.320397946983576, "prompt_s": 0.18, "generation_s": 9.2, "vocoder_s": 1.07, "inference_s": 10.44, "audio_s": 1.28, "pcm_sha256": "025d84b5381d5f5a08db11fdea365b3c5022cba12a2dd7ae6a94d1df750c35e2"}
+[
+  {
+    "model": "pocket",
+    "baseline": {
+      "mean_s": 0.408,
+      "sd_s": 0.004472135954999559,
+      "n": 5
+    },
+    "pr": {
+      "mean_s": 0.404,
+      "sd_s": 0.005477225575051635,
+      "n": 5
+    },
+    "speedup": 1.0099009900990097,
+    "pcm_identical": true,
+    "trace": "OP_TRACE graphs=248 nodes=15396 count_equal_nodes=0 count_equal_creations=0 webgpu_count_equal=0 cpu_count_equal=0"
+  },
+  {
+    "model": "qwen06",
+    "baseline": {
+      "mean_s": 10.44,
+      "sd_s": 0.10653637876331294,
+      "n": 5
+    },
+    "pr": {
+      "mean_s": 10.266,
+      "sd_s": 0.07765307463326897,
+      "n": 5
+    },
+    "speedup": 1.0169491525423728,
+    "pcm_identical": true,
+    "trace": "OP_TRACE graphs=12387 nodes=261546 count_equal_nodes=0 count_equal_creations=0 webgpu_count_equal=0 cpu_count_equal=0"
+  },
+  {
+    "model": "qwen17",
+    "baseline": {
+      "mean_s": 10.64,
+      "sd_s": 0.3426368339802359,
+      "n": 5
+    },
+    "pr": {
+      "mean_s": 10.434,
+      "sd_s": 0.14876155417311288,
+      "n": 5
+    },
+    "speedup": 1.019743147402722,
+    "pcm_identical": true,
+    "trace": "OP_TRACE graphs=12387 nodes=262634 count_equal_nodes=0 count_equal_creations=0 webgpu_count_equal=0 cpu_count_equal=0"
+  }
+]

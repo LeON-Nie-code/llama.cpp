@@ -1,0 +1,29 @@
+-- llama.cpp version: 0.8.0-dev
+CMAKE_BUILD_TYPE=Release
+-- Warning: ccache not found - consider installing it for faster compilation or disable this warning with GGML_CCACHE=OFF
+-- CMAKE_SYSTEM_PROCESSOR: x86_64
+-- GGML_SYSTEM_ARCH: x86
+-- Including CPU backend
+-- x86 detected
+-- Adding CPU backend variant ggml-cpu: -march=native 
+-- Shader output dir: /tmp/llama-count-equal-build/ggml/src/ggml-webgpu/generated
+-- Including WebGPU backend
+-- ggml version: 0.28.0
+-- ggml commit:  0ec4027-dirty
+-- Could NOT find OpenSSL, try to set the path to OpenSSL root folder in the system variable OPENSSL_ROOT_DIR (missing: OPENSSL_CRYPTO_LIBRARY OPENSSL_INCLUDE_DIR) 
+CMake Warning at vendor/cpp-httplib/CMakeLists.txt:154 (message):
+  OpenSSL not found, HTTPS support disabled
+
+
+-- Generating embedded license file for target: llama-app
+-- Configuring done (0.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: /tmp/llama-count-equal-build
+[  7%] Built target generate_shaders
+[ 38%] Built target ggml-base
+[ 46%] Built target ggml-webgpu
+[ 92%] Built target ggml-cpu
+[100%] Linking CXX shared library ../../bin/libggml.so
+[100%] Built target ggml
+[100%] Linking CXX executable ../bin/test-backend-ops
+[100%] Built target test-backend-ops
