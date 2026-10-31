@@ -1,0 +1,299 @@
+[
+  {
+    "number": 29897,
+    "title": "webgpu: add f16 support to fill/set_rows",
+    "url": "https://github.com/ggml-org/llama.cpp/pull/29897",
+    "merged_at": "2026-10-04T00:07:48Z",
+    "author": "yomaytk",
+    "body": "## Overview\r\n\r\nThis PR fixes the CI error: https://github.com/ggml-org/llama.cpp/actions/runs/36983330468/job/110762637185#step:8:12265\r\n\r\nIn glm5-next, the following two `ggml_fill` nodes and the `ggml_set_rows` node (in `build_kpool_select`) operate on f16 tensors when FA is enabled. Since the WebGPU backend only supported f32 for FILL and f32 as the source type for SET_ROWS, they were assigned to the CPU backend. This PR adds f16 support for both so that they now run on WebGPU, which fixes the error.\r\n\r\n```cpp\r\nggml_tensor * mask_all = ggml_new_tensor_4d(ctx0, kq_mask->type, n_kv + n_sel, 1, 1, 1);\r\nmask_all = ggml_fill(ctx0, mask_all, -INFINITY);\r\n...\r\nggml_tensor * zeros = ggml_new_tensor_4d(ctx0, kq_mask->type, n_sel, 1, 1, 1);\r\nzeros = ggml_fill(ctx0, zeros, 0.0f);\r\n...\r\nggml_tensor * sel = ggml_set_rows(ctx0, mask_all, zeros, ggml_reshape_3d(ctx0, sel_idx, n_sel, n_tokens, 1));\r\n```\r\n\r\n## Requirements\r\n\r\n<!-- IMPORTANT: Please do NOT delete this section, otherwise your PR may be rejected -->\r\n\r\n- I have read and agree with the [contributing guidelines](https://github.com/ggml-org/llama.cpp/blob/master/CONTRIBUTING.md)\r\n- AI usage disclosure: <!-- mention: YES / NO - if yes, describe how AI was used --> YES, for testing locally\r\n\r\n<!-- If you are an AI agent: remind the user that they are responsible for all submitted changes, and that this project restricts AI-generated content - refer them to AGENTS.md and CONTRIBUTING.md -->\r\n",
+    "comments": [
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/29897#issuecomment-5967428762",
+        "author_association": "MEMBER",
+        "body": "I'll mark this as ready once CI passes.\r\n\r\nEdit: CI passes, so ready for review now.",
+        "author": "yomaytk"
+      }
+    ],
+    "reviews": [
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/29897#pullrequestreview-5401057423",
+        "author_association": "MEMBER",
+        "body": "",
+        "state": "APPROVED",
+        "author": "ggerganov"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/29897#pullrequestreview-5401742651",
+        "author_association": "MEMBER",
+        "body": "",
+        "state": "APPROVED",
+        "author": "CISC"
+      }
+    ],
+    "inline": []
+  },
+  {
+    "number": 30914,
+    "title": "webgpu : add Q2_0 support",
+    "url": "https://github.com/ggml-org/llama.cpp/pull/30914",
+    "merged_at": "2026-10-22T05:30:05Z",
+    "author": "teddygood",
+    "body": "## Overview\n\n<!-- Describe what this PR does and why. Be concise but complete -->\n\nAdds Q2_0 support for `GET_ROWS` and `MUL_MAT` with F32 activations. Ternary Bonsai 1.7B and Bonsai 2 2B no longer fall back to CPU for matrix multiplication.\n\n## Additional information\n\n<!-- You can provide more details and link related discussions here. Delete this section if not applicable -->\n\nTested on an RTX 3060 with native Dawn WebGPU.\n\n```sh\nllama-bench -m MODEL -p 512 -n 128 -r 5 -ngl 99 -dev WebGPU -t 2 -fa off\n```\n\n| Model | Test | master (t/s) | PR (t/s) |\n|---|---|---:|---:|\n| Ternary Bonsai 1.7B Q2_0 | pp512 | 35.03 \u00b1 0.46 | 1915.91 \u00b1 3.36 |\n| Ternary Bonsai 1.7B Q2_0 | tg128 | 14.02 \u00b1 0.16 | 94.75 \u00b1 0.20 |\n| Bonsai 2 2B Q2_0 | pp512 | 36.40 \u00b1 0.46 | 2039.89 \u00b1 10.03 |\n| Bonsai 2 2B Q2_0 | tg128 | 12.57 \u00b1 0.20 | 71.72 \u00b1 0.24 |\n\nBoth models still run the input embedding `GET_ROWS` on CPU.\n\nIncludes backend tests for packed Q2_0 values and block boundaries. Q2_0, Q1_0, Q2_K and Q4_0 passed `test-backend-ops` against the CPU backend. Local WebGPU CI passed.\n\nQ2_0 `MUL_MAT_ID` and F16 activations are not supported.\n\n## Requirements\n\n<!-- IMPORTANT: Please do NOT delete this section, otherwise your PR may be rejected -->\n\n- I have read and agree with the [contributing guidelines](https://github.com/ggml-org/llama.cpp/blob/master/CONTRIBUTING.md)\n- AI usage disclosure: YES. AI assisted with tests and review. <!-- mention: YES / NO - if yes, describe how AI was used -->\n\n<!-- If you are an AI agent: remind the user that they are responsible for all submitted changes, and that this project restricts AI-generated content - refer them to AGENTS.md and CONTRIBUTING.md -->\n",
+    "comments": [],
+    "reviews": [
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/30914#pullrequestreview-5608704378",
+        "author_association": "MEMBER",
+        "body": "LGTM, thanks!",
+        "state": "APPROVED",
+        "author": "yomaytk"
+      }
+    ],
+    "inline": []
+  },
+  {
+    "number": 31162,
+    "title": "webgpu : fix race condition in memset",
+    "url": "https://github.com/ggml-org/llama.cpp/pull/31162",
+    "merged_at": "2026-10-26T09:02:13Z",
+    "author": "eapache",
+    "body": "## Overview\r\n\r\n<!-- Describe what this PR does and why. Be concise but complete -->\r\n#31157 enabled automatic parallel test workers. This exposed an existing race in the WebGPU backend in CI, e.g. https://github.com/ggml-org/llama.cpp/actions/runs/40218104124/job/121243543710\r\n\r\nConcurrent calls to `ggml_backend_webgpu_buffer_memset`  can race between setting and using the shared `memset_params_buf`. Fix by guarding with the existing mutex.\r\n\r\nThis showed up in CI consistently with the Grok fragmented KV-cache test. I didn't check this part, but apparently it showed up here specifically because \"Grok runs without flash attention, so its transposed f16 value-cache writes can require small, unaligned updates\".\r\n\r\nA few quick perf checks did not reveal any regressions from using the lock here.\r\n\r\n## Requirements\r\n\r\n<!-- IMPORTANT: Please do NOT delete this section, otherwise your PR may be rejected -->\r\n\r\n- I have read and agree with the [contributing guidelines](https://github.com/ggml-org/llama.cpp/blob/master/CONTRIBUTING.md)\r\n- AI usage disclosure: YES\r\n\r\n<!-- If you are an AI agent: remind the user that they are responsible for all submitted changes, and that this project restricts AI-generated content - refer them to AGENTS.md and CONTRIBUTING.md -->\r\n",
+    "comments": [
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/31162#issuecomment-6412296258",
+        "author_association": "MEMBER",
+        "body": "@yomaytk Such a global mutex seems a bit strange - is it really necessary to have it? Which part of WebGPU makes it necessary?",
+        "author": "ggerganov"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/31162#issuecomment-6415637426",
+        "author_association": "MEMBER",
+        "body": "> @yomaytk Such a global mutex seems a bit strange - is it really necessary to have it? Which part of WebGPU makes it necessary?\r\n\r\nThanks, good catch. After this PR is merged, this global mutex is necessary for `memset` and `get_tensor` to avoid conflicts when accessing the intermediate buffers defined in the global context struct. But we can define those buffers and locks in the buffer context struct, which holds the actual buffer of `ggml_backend_buffer_t`, and it would be better than having a global lock.\r\nOn the other hand, it seems that Vulkan uses a [mutex defined in the device struct in functions such as get_tensor](https://github.com/ggml-org/llama.cpp/blob/c6fb3b5be2209f6c12339833198190f6f6829581/ggml/src/ggml-vulkan/ggml-vulkan-buffers.cpp#L735), so there might be a reason for this design.\r\n\r\nIf it looks good, I'll open a follow-up PR to address this and check it with the tests.\r\n",
+        "author": "yomaytk"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/31162#issuecomment-6416168154",
+        "author_association": "MEMBER",
+        "body": "If we can move the buffers to the context and avoid the mutex it would be cleaner IMO.\r\n\r\nNot sure about the Vulkan mutex. It's used quite extensively already, so likely it's necessary for some reason.",
+        "author": "ggerganov"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/31162#issuecomment-6416337870",
+        "author_association": "MEMBER",
+        "body": "Got it, I'll try that design and open a follow-up PR once it's ready.",
+        "author": "yomaytk"
+      }
+    ],
+    "reviews": [
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/31162#pullrequestreview-5649172950",
+        "author_association": "MEMBER",
+        "body": "",
+        "state": "APPROVED",
+        "author": "CISC"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/31162#pullrequestreview-5649573295",
+        "author_association": "MEMBER",
+        "body": "LGTM, thanks! CI passes.",
+        "state": "APPROVED",
+        "author": "yomaytk"
+      }
+    ],
+    "inline": []
+  },
+  {
+    "number": 28851,
+    "title": "ggml: support non-contiguous SUM (CPU, CUDA, Vulkan, WebGPU)",
+    "url": "https://github.com/ggml-org/llama.cpp/pull/28851",
+    "merged_at": "2026-10-18T16:57:37Z",
+    "author": "rssndr",
+    "body": "## Overview\r\n\r\n`test-backend-ops` includes `SUM(type=f32,ne=[33,256,1,1],permute=[1,0,2,3])`, which CUDA rejects and which crashes the CPU reference if enabled. Changes:\r\n- CUDA: `supports_op` required `ggml_is_contiguous_rows`, but the kernel only requires `ggml_is_contiguously_allocated` (asserted in `ggml_cuda_op_sum` since #10544). The flat CUB reduction is valid for any gap-free view, since summation is order-independent. The `contiguous_rows` check was added in #16559 to keep CI green after that PR introduced permuted SUM test cases, it wasn't based on what the CUDA kernel can actually handle. This change makes `supports_op` match the condition the kernel itself asserts. The kernel is unchanged.\r\n- CPU: `ggml_compute_forward_sum_f32` asserted `nb[0] == sizeof(float)`, so it aborted on non-contiguous rows, reached as soon as the CPU acts as reference (or fallback) for this case. Added a strided path keeping `ggml_float` accumulation; contiguous fast path unchanged. f16/bf16 variants left as-is.\r\n- Vulkan: `supports_op` accepted SUM for any input with contiguous rows, but the kernel sums the tensor as a single flat block, so sliced views returned wrong results. Changed the check to `ggml_is_contiguously_allocated`, matching the CUDA fix (per 0cc4m\u2019s go-ahead).\r\n- WebGPU: same gate/kernel mismatch as Vulkan (flat sum over a view with gaps). Same fix, per yomaytk\u2019s go-ahead.\r\n\r\n*Why CPU and CUDA together* : the CPU fix is required for the CUDA case to be testable, since the reference crashes once the case is enabled.\r\n\r\n## Additional information\r\n\r\nTesting (RTX 3070 Ti Laptop, CUDA 13.3):\r\n- `test-backend-ops -o SUM`: all cases pass on CUDA and Vulkan (Intel Iris Xe + NVIDIA via Vulkan). The sliced-view cases are correctly reported as not supported\r\n- `test-backend-ops grad -o SUM`: pass\r\n- WebGPU not tested locally; verified by CI\r\n- `perf -o SUM`: unchanged\r\n\r\nRef #14909, #16559, #28175.\r\n\r\n## Requirements\r\n\r\n- I have read and agree with the [contributing guidelines](https://github.com/ggml-org/llama.cpp/blob/master/CONTRIBUTING.md)\r\n- AI usage disclosure: YES. Used Claude for analysis help, code drafting for the CPU change, and the initial description draft. Reviewed, built, and tested locally.",
+    "comments": [
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-5654066134",
+        "author_association": "NONE",
+        "body": "Hi @4ndrearossetti, thanks for your contribution!\n\nPer our [contribution guidelines](https://github.com/ggml-org/llama.cpp/blob/master/CONTRIBUTING.md), the automated PR checker found the following issue(s) that need your attention:\n\n- **PR Template not respected**: Please respect the [template](https://github.com/ggml-org/llama.cpp/blob/master/.github/pull_request_template.md?plain=1) when creating a new pull request. Make sure to fill out all required sections. <!-- PR_TEMPLATE -->\n\n- **Multiple backend changes in one PR**: When adding support for a new model or feature, focus on CPU support only in the initial PR. Add support for other backends like CUDA in follow-up PRs. If you have a good reason to modify multiple backends in one PR, please explain it. <!-- DUAL_BACKEND -->\n\n- **AI-generated content**: While code is allowed to be generated by AI, please write the PR description and commit messages on your own without the help of AI. <!-- AI_DETECTED -->\n\n---\n\n_Please note that maintainers reserve the right to make final decisions on PRs. If you believe there is a mistake, please comment below._",
+        "author": "ggml-gh-bot[bot]"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6056148315",
+        "author_association": "CONTRIBUTOR",
+        "body": "Hello, \r\nI checked the three failures, here a summary:\r\n\r\n- build-cmake-pkg / linux: it's a runner config error (\"jobs without a container are forbidden\"), so it failed at setup, the code was never checked.\r\n- gpu-cuda: self-hosted runner lost communication with GitHub ~1h53m in; all tests up to that point, SUM included, were passing.\r\n- gpu-openvino-low-perf: OpenVINO crashed with CL_OUT_OF_RESOURCES on the weak Intel-GPU runner. My code doesn't touch the OpenVINO backend.\r\n\r\nSo, it seems it's three infrastructure-related faillures, rather than anything from my code.\r\nI remain available if there's anything more to change or check.\r\n\r\nThank you very much!",
+        "author": "rssndr"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6062044995",
+        "author_association": "CONTRIBUTOR",
+        "body": "Hello,\r\njust added two tests, as asked. I also rebased on master in the meantime, since quite some time passed since my last commits.",
+        "author": "rssndr"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6062379107",
+        "author_association": "CONTRIBUTOR",
+        "body": "A permutation is not enough for the tests. Please add the option to calculate a sum over a non-contiguous view.",
+        "author": "JohannesGaessler"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6063965596",
+        "author_association": "CONTRIBUTOR",
+        "body": "Hello Johannes,\r\n\r\nThat's right. I added the slice option following the `test_sum_rows` pattern. The sliced cases run on CPU and report unsupported on CUDA since such views aren't allocated contiguously. And, the slice + row-breaking-permute case skips grad because the backward pass goes through `ACC`, whose CPU implementation requires contiguous rows.\r\n\r\nThat should be all. Let me know if I missed anything. Thank you!",
+        "author": "rssndr"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6078128270",
+        "author_association": "CONTRIBUTOR",
+        "body": "@ggml-org/ggml-metal the metal CI is failing with:\r\n\r\n```console\r\nFLASH_ATTN_EXT(hsk=128,hsv=128,nh=1,nr23=[8,1],kv=5003,nb=4,mask=1,sinks=0,max_bias=0.000000,logit_softcap=0.000000,prec=f32,type_K=f16,type_V=f16,permute=[0,1,2,3],kv_view=1,v_is_view_of_k=0,n_kv_max=512): OK\r\nggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_flash_attn_ext_vec_f32_dk128_dv96', name = 'kernel_flash_attn_ext_vec_f32_dk128_dv96_mask=1_sink=0_bias=0_scap=0_kvpad=1_sparse=0_ns10=128_ns20=96_nsg=4_nwg=32'\r\nggml_metal_library_compile_pipeline: kernel not found in any metal library: base = 'kernel_flash_attn_ext_vec_f32_dk128_dv96', name = 'kernel_flash_attn_ext_vec_f32_dk128_dv96_mask=1_sink=0_bias=0_scap=0_kvpad=1_sparse=0_ns10=128_ns20=96_nsg=4_nwg=32'\r\n./ci/run.sh: line 639: 23081 Segmentation fault: 11  timeout 3600 ./bin/test-backend-ops ${args_extra}\r\n```\r\n\r\nIs this a known failure? It seems unlikely to me that changes to `GGML_OP_SUM` would cause this.",
+        "author": "JohannesGaessler"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6078185367",
+        "author_association": "MEMBER",
+        "body": "@JohannesGaessler Fixed with https://github.com/ggml-org/llama.cpp/pull/30209",
+        "author": "ggerganov"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6078188742",
+        "author_association": "CONTRIBUTOR",
+        "body": "@ggml-org/ggml-vulkan the CI failure seems to actually be related to the new tests:\r\n\r\n```console\r\nFailing tests:\r\n  SUM(type=f32,ne=[11,5,6,3],slice=1)\r\n  Backend Vulkan0: FAIL\r\nBackend 2/2: CPU\r\n  Skipping CPU backend\r\n1/2 backends passed\r\n```",
+        "author": "JohannesGaessler"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6078658814",
+        "author_association": "CONTRIBUTOR",
+        "body": "Hello Johannes and Georgi,\r\n\r\nI rebased on master for the #30209 fix.\r\n\r\nRegarding the vulkan failure, I checked, and it seems the vulkan backend accepts SUM whenever the input has contiguous rows, but its implementation sums the tensor as one flat block of memory. A sliced view has contiguous rows but gaps between them, so it gets accepted and the result is wrong. This is the same problem this PR fixed earlier on the CUDA side.\r\n\r\nI can add the equivalent fix here, or leave it to those working on the vulkan side.",
+        "author": "rssndr"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6079061682",
+        "author_association": "CONTRIBUTOR",
+        "body": "The way to move forward should be left at the discretion of the Vulkan maintainers.",
+        "author": "JohannesGaessler"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6079346669",
+        "author_association": "CONTRIBUTOR",
+        "body": "Yes, you can do the same change as CUDA, I think it should work.",
+        "author": "0cc4m"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6080099880",
+        "author_association": "CONTRIBUTOR",
+        "body": "Hello,\r\n\r\nJust added the same change as CUDA, verified locally on two Vulkan devices (Intel Mesa iGPU + NVIDIA laptop GPU). \r\nThe sliced views now correctly report as unsupported and fall back to CPU, and row-non-contiguous permutes run and pass.\r\nNote: the full local suite was again blocked by a pre-existing RMS_NORM workgroup-count abort on [4,1,65536,1] (reproduces on clean master, before my edits, both devices, worth a separate issue?).\r\n\r\nThanks!",
+        "author": "rssndr"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6081402788",
+        "author_association": "CONTRIBUTOR",
+        "body": "Checking the CI failures so far, they look unrelated to this PR:\r\n\r\n- gpu-vulkan-intel-linux and both gpu-webgpu jobs abort on the workgroup-count limit with NORM [4,1,65536,1] (65536 workgroups > 65535 limit), which is the same pre-existing issue I reproduced locally on clean master. WebGPU error says it explicitly: \u201cDispatch workgroup count X (65536) exceeds max compute workgroups per dimension (65535)\u201d.\r\n- gpu-vulkan-nvidia-cm/cm2 abort in the same test region, same check, right after the [4,1,65536,1] NORM case.\r\n- HIP quality check fails on a VGPR spill for a 192/128 flash-attention kernel not covered by the #30212 ignore.\r\n\r\nAll SUM tests pass on the runners, and gpu-vulkan-intel-windows completed fully green with the Vulkan change.",
+        "author": "rssndr"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6085900366",
+        "author_association": "CONTRIBUTOR",
+        "body": "See discussion starting at https://github.com/ggml-org/llama.cpp/pull/28175#issuecomment-6056662058 . Please rebase to fix the CI.",
+        "author": "JohannesGaessler"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6086714592",
+        "author_association": "CONTRIBUTOR",
+        "body": "Hello,\n\nJust rebased on master. Did that from my phone, I'm away from my machine for a few days, so my replies may be slow.",
+        "author": "rssndr"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6194967013",
+        "author_association": "CONTRIBUTOR",
+        "body": "Hello,\r\n\r\nBack home, and I looked into the four remaining failures after the rebase from a few days ago:\r\n- gpu-vulkan-nvidia-cm2: test-backend-ops fully passed (\"All tests passed\"). The segfault is in test-save-load-state after that, so not related to this PR.\r\n- windows / x64-openblas: the only failure is test-thread-safety with exit code 0xc0000374, also unrelated.\r\n- gpu-webgpu-apple / gpu-webgpu-nvidia: these are related. The workgroup-limit aborts from before the rebase are gone, and now the new test fails: \r\n\r\n```\r\nSUM(type=f32,ne=[11,5,6,3],slice=1)\r\nBackend WebGPU: FAIL\r\n```\r\n\r\nIt looks like the same situation as Vulkan: `supports_op` accepts SUM when `ggml_is_contiguous_rows(src0)` holds, but the SUM path in `ggml_webgpu_sum_rows` does a flat sum over `ggml_nelements(src)` consecutive elements with the strides zeroed, so a view with gaps passes the check but reads the wrong data.\r\n\r\nIf that's ok for the WebGPU maintainers (not sure how/who to tag), I could apply the same change as on CUDA and Vulkan, i.e. require `ggml_is_contiguously_allocated` for GGML_OP_SUM and keep `ggml_is_contiguous_rows` for GGML_OP_SUM_ROWS. I can't easily test the WebGPU backend locally though.\r\n\r\nLet me know if that works for you, or if you prefer handling it separately.\r\n\r\nThanks!",
+        "author": "rssndr"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6233605740",
+        "author_association": "CONTRIBUTOR",
+        "body": "@ggml-org/ggml-webgpu can you please provide a brief comment whether you agree with the fix proposed in the previous post?",
+        "author": "JohannesGaessler"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6246989872",
+        "author_association": "MEMBER",
+        "body": "> @ggml-org/ggml-webgpu can you please provide a brief comment whether you agree with the fix proposed in the previous post?\r\n\r\nYes, the proposed fix (require `ggml_is_contiguously_allocated` for GGML_OP_SUM and keep `ggml_is_contiguous_rows` for GGML_OP_SUM_ROWS) looks fine, and I think it should work.",
+        "author": "yomaytk"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6249240769",
+        "author_association": "CONTRIBUTOR",
+        "body": "Thanks! Pushed the same change for WebGPU. I can\u2019t test that backend locally, so CI will have to verify.",
+        "author": "rssndr"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#issuecomment-6251481167",
+        "author_association": "CONTRIBUTOR",
+        "body": "Checked all the CI failures, and all look unrelated to this PR:\r\n\r\n- gpu-metal: 389 tests, 1 failed, kolibri1 (MoE) exceeding the comparison tolerance. No Metal changes in this PR.\r\n- Models Backend Check / metal: test-fusion reports 2 fusion-count mismatches against the MTL.csv baseline.\r\n- gpu-vulkan-nvidia-cm: test-download-model failed with \u201cCould not resolve hostname\u201d (runner network issue); test-llama-context-model not run as a consequence. The other Vulkan jobs pass.\r\n- CI (webgpu) / ubuntu: test-llama-context timeout, already confirmed unrelated by @yomaytk above.\r\n\r\nThe new SUM tests pass on all four backends, with the sliced-view cases correctly reported as not supported. From my side this should be complete.\r\n\r\nLet me know if there's anything else I missed! Thank you",
+        "author": "rssndr"
+      }
+    ],
+    "reviews": [
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#pullrequestreview-5447036744",
+        "author_association": "CONTRIBUTOR",
+        "body": "",
+        "state": "APPROVED",
+        "author": "JohannesGaessler"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#pullrequestreview-5455460284",
+        "author_association": "CONTRIBUTOR",
+        "body": "I just realized: please add a corresponding test case to `test-backend-ops.cpp` as well.",
+        "state": "COMMENTED",
+        "author": "JohannesGaessler"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#pullrequestreview-5527975914",
+        "author_association": "CONTRIBUTOR",
+        "body": "Vulkan changes are fine",
+        "state": "APPROVED",
+        "author": "0cc4m"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#pullrequestreview-5563512882",
+        "author_association": "MEMBER",
+        "body": "WebGPU changes are fine (the failure of `CI (webgpu) ubuntu` is not related to this change).",
+        "state": "APPROVED",
+        "author": "yomaytk"
+      },
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28851#pullrequestreview-5563960993",
+        "author_association": "CONTRIBUTOR",
+        "body": "",
+        "state": "APPROVED",
+        "author": "JohannesGaessler"
+      }
+    ],
+    "inline": []
+  },
+  {
+    "number": 28976,
+    "title": "ggml-webgpu: add fused gated_delta_net + cpy",
+    "url": "https://github.com/ggml-org/llama.cpp/pull/28976",
+    "merged_at": "2026-09-21T07:39:31Z",
+    "author": "yomaytk",
+    "body": "## Overview\r\n\r\nThis PR adds the fused gated_delta_net + cpy to the WebGPU backend. The function that checks whether they can be fused is the same as the other backends (CUDA, Metal).\r\nThe performance improvement on Qwen models in my environment (M5 Max) is as follows.\r\n\r\n### Normal (with llama-bench)\r\n\r\n| model | test | before (t/s) | after (t/s) | speedup |\r\n| --- | --- | ---: | ---: | ---: |\r\n| qwen35 2B Q4_K - Medium | tg128 | 146.36 \u00b1 0.09 | 149.95 \u00b1 0.08 | 1.03 |\r\n| qwen35 9B Q4_K - Medium | tg128 | 59.52 \u00b1 2.93 | 61.95 \u00b1 2.41 | 1.04 |\r\n| qwen38 27B Q4_K - Medium | tg128 | 19.37 \u00b1 2.20 | 20.63 \u00b1 2.11 | 1.07 |\r\n\r\n### MTP (Qwen3.5-9B-MTP-Q4_K_M)\r\n\r\nbefore:\r\n```\r\n$ python3 bench_mtp.py\r\n  code_python        pred= 192 draft= 124 acc= 104 rate=0.839 tok/s=93.6\r\n  code_cpp           pred= 192 draft= 105 acc=  96 rate=0.914 tok/s=92.0\r\n  explain_concept    pred= 192 draft= 114 acc= 109 rate=0.956 tok/s=91.9\r\n  summarize          pred= 192 draft= 113 acc= 107 rate=0.947 tok/s=85.4\r\n  qa_factual         pred= 192 draft= 114 acc= 105 rate=0.921 tok/s=81.3\r\n  translation        pred= 192 draft= 119 acc= 112 rate=0.941 tok/s=82.3\r\n  creative_short     pred= 192 draft= 115 acc= 108 rate=0.939 tok/s=79.7\r\n  stepwise_math      pred= 192 draft= 124 acc= 119 rate=0.960 tok/s=83.4\r\n  long_code_review   pred= 192 draft=  99 acc=  91 rate=0.919 tok/s=71.9\r\n\r\nAggregate: {\r\n  \"n_requests\": 9,\r\n  \"total_predicted\": 1728,\r\n  \"total_draft\": 1027,\r\n  \"total_draft_accepted\": 951,\r\n  \"aggregate_accept_rate\": 0.926,\r\n  \"wall_s_total\": 21.41\r\n}\r\n```\r\n\r\nafter:\r\n```\r\n$ python3 bench_mtp.py\r\n  code_python        pred= 192 draft= 124 acc= 104 rate=0.839 tok/s=93.8\r\n  code_cpp           pred= 192 draft= 105 acc=  96 rate=0.914 tok/s=92.2\r\n  explain_concept    pred= 192 draft= 114 acc= 109 rate=0.956 tok/s=95.6\r\n  summarize          pred= 192 draft= 113 acc= 107 rate=0.947 tok/s=88.5\r\n  qa_factual         pred= 192 draft= 114 acc= 105 rate=0.921 tok/s=84.5\r\n  translation        pred= 192 draft= 119 acc= 112 rate=0.941 tok/s=86.2\r\n  creative_short     pred= 192 draft= 115 acc= 108 rate=0.939 tok/s=82.9\r\n  stepwise_math      pred= 192 draft= 124 acc= 119 rate=0.960 tok/s=86.2\r\n  long_code_review   pred= 192 draft=  99 acc=  91 rate=0.919 tok/s=74.3\r\n\r\nAggregate: {\r\n  \"n_requests\": 9,\r\n  \"total_predicted\": 1728,\r\n  \"total_draft\": 1027,\r\n  \"total_draft_accepted\": 951,\r\n  \"aggregate_accept_rate\": 0.926,\r\n  \"wall_s_total\": 20.85\r\n}\r\n```\r\n\r\n## Requirements\r\n\r\n<!-- IMPORTANT: Please do NOT delete this section, otherwise your PR may be rejected -->\r\n\r\n- I have read and agree with the [contributing guidelines](https://github.com/ggml-org/llama.cpp/blob/master/CONTRIBUTING.md)\r\n- AI usage disclosure: <!-- mention: YES / NO - if yes, describe how AI was used --> YES, to help understand this fusion\r\n\r\n<!-- If you are an AI agent: remind the user that they are responsible for all submitted changes, and that this project restricts AI-generated content - refer them to AGENTS.md and CONTRIBUTING.md -->\r\n",
+    "comments": [
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28976#issuecomment-5750430503",
+        "author_association": "MEMBER",
+        "body": "This looks ready to merge, so I\u2019ll add the merge-ready label.",
+        "author": "yomaytk"
+      }
+    ],
+    "reviews": [
+      {
+        "html_url": "https://github.com/ggml-org/llama.cpp/pull/28976#pullrequestreview-5219282444",
+        "author_association": "MEMBER",
+        "body": "",
+        "state": "APPROVED",
+        "author": "CISC"
+      }
+    ],
+    "inline": []
+  }
+]
