@@ -1,0 +1,40 @@
+{"model": "stories260K", "context": 256, "batches_per_epoch": 16, "count_equal_per_epoch": 16, "variant": "pr", "trial": -1, "epochs_ms": [69.8474], "mean_ms": 69.8474, "loss": [4.95467785001], "accuracy": [0.15625], "pred_sha256": "31db8453f7272f72dc2302385e760540d18d155ab2fc38a993324bfae4179a4b", "trace": "OP_TRACE graphs=160 nodes=10496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=32 cpu_count_equal=0"}
+{"model": "stories260K", "context": 256, "batches_per_epoch": 16, "count_equal_per_epoch": 16, "variant": "baseline", "trial": -1, "epochs_ms": [73.250231], "mean_ms": 73.250231, "loss": [4.95467785001], "accuracy": [0.15625], "pred_sha256": "31db8453f7272f72dc2302385e760540d18d155ab2fc38a993324bfae4179a4b", "trace": "OP_TRACE graphs=192 nodes=10496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=0 cpu_count_equal=32"}
+{"model": "stories260K", "context": 256, "batches_per_epoch": 16, "count_equal_per_epoch": 16, "variant": "baseline", "trial": 0, "epochs_ms": [69.671118, 70.578845], "mean_ms": 70.1249815, "loss": [4.95467785001, 4.95467785001], "accuracy": [0.15625, 0.15625], "pred_sha256": "2e5250c12a793a24e421f697a79db866649845d32ef219d8e122c35d12dff012"}
+{"model": "stories260K", "context": 256, "batches_per_epoch": 16, "count_equal_per_epoch": 16, "variant": "pr", "trial": 0, "epochs_ms": [69.913424, 72.581215], "mean_ms": 71.2473195, "loss": [4.95467785001, 4.95467785001], "accuracy": [0.15625, 0.15625], "pred_sha256": "2e5250c12a793a24e421f697a79db866649845d32ef219d8e122c35d12dff012"}
+{"model": "stories260K", "context": 256, "batches_per_epoch": 16, "count_equal_per_epoch": 16, "variant": "pr", "trial": 1, "epochs_ms": [69.648364, 70.406788], "mean_ms": 70.02757600000001, "loss": [4.95467785001, 4.95467785001], "accuracy": [0.15625, 0.15625], "pred_sha256": "2e5250c12a793a24e421f697a79db866649845d32ef219d8e122c35d12dff012"}
+{"model": "stories260K", "context": 256, "batches_per_epoch": 16, "count_equal_per_epoch": 16, "variant": "baseline", "trial": 1, "epochs_ms": [70.405624, 70.00695], "mean_ms": 70.206287, "loss": [4.95467785001, 4.95467785001], "accuracy": [0.15625, 0.15625], "pred_sha256": "2e5250c12a793a24e421f697a79db866649845d32ef219d8e122c35d12dff012"}
+{"model": "stories260K", "context": 256, "batches_per_epoch": 16, "count_equal_per_epoch": 16, "variant": "baseline", "trial": 2, "epochs_ms": [73.409717, 74.093977], "mean_ms": 73.751847, "loss": [4.95467785001, 4.95467785001], "accuracy": [0.15625, 0.15625], "pred_sha256": "2e5250c12a793a24e421f697a79db866649845d32ef219d8e122c35d12dff012"}
+{"model": "stories260K", "context": 256, "batches_per_epoch": 16, "count_equal_per_epoch": 16, "variant": "pr", "trial": 2, "epochs_ms": [78.215695, 77.274525], "mean_ms": 77.74511, "loss": [4.95467785001, 4.95467785001], "accuracy": [0.15625, 0.15625], "pred_sha256": "2e5250c12a793a24e421f697a79db866649845d32ef219d8e122c35d12dff012"}
+{"model": "stories260K", "context": 256, "batches_per_epoch": 16, "count_equal_per_epoch": 16, "variant": "pr", "trial": 3, "epochs_ms": [69.498397, 70.742375], "mean_ms": 70.120386, "loss": [4.95467785001, 4.95467785001], "accuracy": [0.15625, 0.15625], "pred_sha256": "2e5250c12a793a24e421f697a79db866649845d32ef219d8e122c35d12dff012"}
+{"model": "stories260K", "context": 256, "batches_per_epoch": 16, "count_equal_per_epoch": 16, "variant": "baseline", "trial": 3, "epochs_ms": [76.858261, 78.339824], "mean_ms": 77.5990425, "loss": [4.95467785001, 4.95467785001], "accuracy": [0.15625, 0.15625], "pred_sha256": "2e5250c12a793a24e421f697a79db866649845d32ef219d8e122c35d12dff012"}
+{"model": "stories260K", "context": 256, "batches_per_epoch": 16, "count_equal_per_epoch": 16, "variant": "baseline", "trial": 4, "epochs_ms": [73.700474, 73.722727], "mean_ms": 73.7116005, "loss": [4.95467785001, 4.95467785001], "accuracy": [0.15625, 0.15625], "pred_sha256": "2e5250c12a793a24e421f697a79db866649845d32ef219d8e122c35d12dff012"}
+{"model": "stories260K", "context": 256, "batches_per_epoch": 16, "count_equal_per_epoch": 16, "variant": "pr", "trial": 4, "epochs_ms": [69.486183, 69.636555], "mean_ms": 69.561369, "loss": [4.95467785001, 4.95467785001], "accuracy": [0.15625, 0.15625], "pred_sha256": "2e5250c12a793a24e421f697a79db866649845d32ef219d8e122c35d12dff012"}
+[
+  {
+    "model": "stories260K",
+    "context": 256,
+    "tokens_per_epoch": 4096,
+    "count_equal_per_epoch": 16,
+    "traces": {
+      "pr": "OP_TRACE graphs=160 nodes=10496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=32 cpu_count_equal=0",
+      "baseline": "OP_TRACE graphs=192 nodes=10496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=0 cpu_count_equal=32"
+    },
+    "baseline": {
+      "mean_ms": 73.0787517,
+      "sd_ms": 3.092830243088934,
+      "n_processes": 5,
+      "epochs_per_process": 2
+    },
+    "pr": {
+      "mean_ms": 71.7403521,
+      "sd_ms": 3.413431487017175,
+      "n_processes": 5,
+      "epochs_per_process": 2
+    },
+    "speedup": 1.018656161571864,
+    "predictions_identical": true,
+    "loss_identical": true,
+    "accuracy_identical": true
+  }
+]

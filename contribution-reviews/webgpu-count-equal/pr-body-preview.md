@@ -39,40 +39,27 @@ Operator timings from `test-backend-ops perf` on the L4:
 
 These are operator microbenchmarks, not end-to-end model speedups. Browser WebGPU was not tested.
 
-### Full-model inference
+### Full-model validation that uses COUNT_EQUAL
 
-NVIDIA L4, same checkpoints, prompt, speaker reference, seed and device settings. One unmeasured warm-up per variant, then five alternating runs per variant. Generate 16 codec frames (1.28 seconds of audio). Times are mean +/- sample SD of prompt evaluation + generation + waveform decoder, excluding model loading.
+Measured the full SmolLM2-135M-Instruct, Qwen2.5-0.5B-Instruct and Stories260K checkpoints through the existing `llama_opt_epoch` forward validation path on WikiText-2. Every validation batch executes COUNT_EQUAL to collect token accuracy. Separate traces confirm CPU execution before the change and WebGPU execution after it, with one fewer executed backend subgraph per batch.
 
-```sh
-llama-tts -m MODEL -mm MMPROJ --tts-speaker-file reference.wav \
-  -p PROMPT -n 16 -ngl 99 -dev WebGPU -mmdev WebGPU -fa off \
-  -t 2 -tb 2 -c 1024 -b 512 -ub 512 -s 1234 --temp 0 --perf
-```
+NVIDIA L4, 4096 token predictions per epoch, context/batch/ubatch 256 or 1024, two CPU threads, flash attention disabled, no backward execution or weight updates. Five alternating process pairs per configuration; one warm-up plus two measured epochs per process. Values are mean +/- sample SD of the five process means, including model forward computation, graph preparation, transfers, loss and accuracy collection, excluding loading and tokenization.
 
-| Model | Baseline (s) | COUNT_EQUAL branch (s) | PCM identical | COUNT_EQUAL calls |
-|---|---:|---:|:---:|---:|
-| PocketTTS English (BF16) | 0.408 +/- 0.004 | 0.404 +/- 0.005 | yes | 0 |
-| Qwen3-TTS 0.6B (Q4_K_M) | 10.440 +/- 0.107 | 10.266 +/- 0.078 | yes | 0 |
-| Qwen3-TTS 1.7B (Q4_K_M) | 10.640 +/- 0.343 | 10.434 +/- 0.149 | yes | 0 |
+| Model | Context / batch | COUNT_EQUAL per epoch | Baseline (ms) | Candidate (ms) | Baseline / candidate |
+|---|---:|---:|---:|---:|---:|
+| SmolLM2-135M-Instruct Q4_K_M | 256 | 16 | 2168.12 +/- 30.84 | 2165.56 +/- 37.33 | 1.0012x |
+| SmolLM2-135M-Instruct Q4_K_M | 1024 | 4 | 1930.24 +/- 9.04 | 1940.47 +/- 17.87 | 0.9947x |
+| Qwen2.5-0.5B-Instruct Q4_K_M | 256 | 16 | 5753.11 +/- 38.27 | 5770.50 +/- 32.97 | 0.9970x |
+| Qwen2.5-0.5B-Instruct Q4_K_M | 1024 | 4 | 5563.95 +/- 41.72 | 5561.65 +/- 34.01 | 1.0004x |
+| Stories260K F32 | 256 | 16 | 73.08 +/- 3.09 | 71.74 +/- 3.41 | 1.0187x |
 
-Diagnostic graph traces found no COUNT_EQUAL construction or execution in these generation workloads. The small timing differences cannot be attributed to accelerating COUNT_EQUAL; this change adds backend coverage without demonstrating a full-model generation speedup. Every baseline/candidate output was byte-identical at the PCM level.
+All predictions, reported loss and accuracy matched across baseline/candidate and repetitions for each configuration. The measured epochs cover 1120 COUNT_EQUAL executions. The additional Stories260K case invokes COUNT_EQUAL about 220 times per second, checking the impact in a faster full-model workload.
 
-### Full-model forward validation
+SmolLM2 and Qwen2.5 validation times are approximately unchanged. Stories260K has a nominal 1.9% improvement, smaller than the run-to-run standard deviation. These results do not establish a meaningful full-model speedup.
 
-The existing `llama_opt_epoch` validation path actually uses COUNT_EQUAL for token accuracy. Tested the full Stories260K and Stories15M checkpoints with context/batch/ubatch 256, four contexts per epoch (1,024 tokens), two CPU threads, no backward execution or weight updates. The workload repeats a fixed short story, so the accuracy values are consistency checks, not model-quality scores.
+Both variants use the same application and unchanged libraries, with the exact baseline/candidate WebGPU backend selected at runtime. Both use the same local NVIDIA driver-module pinning workaround to avoid a teardown crash; the workaround is outside this change. The ARANGE PR is absent in both variants.
 
-Five alternating process pairs per model; one warm-up epoch and six measured epochs per process. The table reports mean +/- sample SD of the five process means, including model forward computation, graph preparation, loss and accuracy collection, and excluding model loading. Diagnostic traces were collected separately from timings.
-
-| Model | Baseline (ms/epoch) | COUNT_EQUAL branch (ms/epoch) | Predictions / loss / accuracy |
-|---|---:|---:|---|
-| stories260K (F32) | 17.72 +/- 0.16 | 17.85 +/- 0.50 | identical |
-| stories15M (F32) | 275.85 +/- 2.44 | 274.71 +/- 0.91 | identical |
-
-Traces confirmed that COUNT_EQUAL moved from CPU to WebGPU, with one fewer executed backend subgraph per validation batch. Overall validation time was approximately unchanged; these measurements do not establish a meaningful end-to-end speedup.
-
-Both variants used the same executable and unchanged libraries with the exact baseline/candidate WebGPU backend selected at runtime. Both also used the same local NVIDIA driver-module pinning workaround as the previous ARANGE measurements to avoid a process-teardown crash. This workaround is not part of the change. The ARANGE PR is absent in both variants.
-
-Reproduction scripts, exact commands, traces and raw timings: [benchmark evidence](https://github.com/LeON-Nie-code/llama.cpp/tree/preview/webgpu-count-equal-results/contribution-reviews/webgpu-count-equal).
+[Reproduction scripts, pinned model inputs, actual COUNT_EQUAL traces and raw timings](https://github.com/LeON-Nie-code/llama.cpp/tree/preview/webgpu-count-equal-results/contribution-reviews/webgpu-count-equal/frequent-models).
 
 ## Requirements
 

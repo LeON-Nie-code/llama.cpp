@@ -1,0 +1,28 @@
+[
+  {
+    "model": "stories260K",
+    "context": 256,
+    "tokens_per_epoch": 4096,
+    "count_equal_per_epoch": 16,
+    "traces": {
+      "pr": "OP_TRACE graphs=160 nodes=10496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=32 cpu_count_equal=0",
+      "baseline": "OP_TRACE graphs=192 nodes=10496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=0 cpu_count_equal=32"
+    },
+    "baseline": {
+      "mean_ms": 73.0787517,
+      "sd_ms": 3.092830243088934,
+      "n_processes": 5,
+      "epochs_per_process": 2
+    },
+    "pr": {
+      "mean_ms": 71.7403521,
+      "sd_ms": 3.413431487017175,
+      "n_processes": 5,
+      "epochs_per_process": 2
+    },
+    "speedup": 1.018656161571864,
+    "predictions_identical": true,
+    "loss_identical": true,
+    "accuracy_identical": true
+  }
+]

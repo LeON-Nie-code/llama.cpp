@@ -1,0 +1,106 @@
+[
+  {
+    "model": "smol135",
+    "context": 256,
+    "tokens_per_epoch": 4096,
+    "count_equal_per_epoch": 16,
+    "traces": {
+      "pr": "OP_TRACE graphs=160 nodes=58496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=32 cpu_count_equal=0",
+      "baseline": "OP_TRACE graphs=192 nodes=58496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=0 cpu_count_equal=32"
+    },
+    "baseline": {
+      "mean_ms": 2168.1152764,
+      "sd_ms": 30.841056479413496,
+      "n_processes": 5,
+      "epochs_per_process": 2
+    },
+    "pr": {
+      "mean_ms": 2165.5584968,
+      "sd_ms": 37.32995342575342,
+      "n_processes": 5,
+      "epochs_per_process": 2
+    },
+    "speedup": 1.0011806559849472,
+    "predictions_identical": true,
+    "loss_identical": true,
+    "accuracy_identical": true
+  },
+  {
+    "model": "smol135",
+    "context": 1024,
+    "tokens_per_epoch": 4096,
+    "count_equal_per_epoch": 4,
+    "traces": {
+      "pr": "OP_TRACE graphs=40 nodes=14624 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=8 cpu_count_equal=0",
+      "baseline": "OP_TRACE graphs=48 nodes=14624 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=0 cpu_count_equal=8"
+    },
+    "baseline": {
+      "mean_ms": 1930.2416083,
+      "sd_ms": 9.037740268982574,
+      "n_processes": 5,
+      "epochs_per_process": 2
+    },
+    "pr": {
+      "mean_ms": 1940.4749774,
+      "sd_ms": 17.87042827606859,
+      "n_processes": 5,
+      "epochs_per_process": 2
+    },
+    "speedup": 0.9947263586394135,
+    "predictions_identical": true,
+    "loss_identical": true,
+    "accuracy_identical": true
+  },
+  {
+    "model": "qwen05",
+    "context": 256,
+    "tokens_per_epoch": 4096,
+    "count_equal_per_epoch": 16,
+    "traces": {
+      "pr": "OP_TRACE graphs=160 nodes=51584 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=32 cpu_count_equal=0",
+      "baseline": "OP_TRACE graphs=192 nodes=51584 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=0 cpu_count_equal=32"
+    },
+    "baseline": {
+      "mean_ms": 5753.1122557,
+      "sd_ms": 38.268940689386554,
+      "n_processes": 5,
+      "epochs_per_process": 2
+    },
+    "pr": {
+      "mean_ms": 5770.4959143,
+      "sd_ms": 32.97195151322357,
+      "n_processes": 5,
+      "epochs_per_process": 2
+    },
+    "speedup": 0.9969874931274241,
+    "predictions_identical": true,
+    "loss_identical": true,
+    "accuracy_identical": true
+  },
+  {
+    "model": "qwen05",
+    "context": 1024,
+    "tokens_per_epoch": 4096,
+    "count_equal_per_epoch": 4,
+    "traces": {
+      "pr": "OP_TRACE graphs=40 nodes=12896 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=8 cpu_count_equal=0",
+      "baseline": "OP_TRACE graphs=48 nodes=12896 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=0 cpu_count_equal=8"
+    },
+    "baseline": {
+      "mean_ms": 5563.9529529,
+      "sd_ms": 41.71584170163014,
+      "n_processes": 5,
+      "epochs_per_process": 2
+    },
+    "pr": {
+      "mean_ms": 5561.6478783,
+      "sd_ms": 34.008001261626376,
+      "n_processes": 5,
+      "epochs_per_process": 2
+    },
+    "speedup": 1.0004144589248438,
+    "predictions_identical": true,
+    "loss_identical": true,
+    "accuracy_identical": true
+  }
+]
