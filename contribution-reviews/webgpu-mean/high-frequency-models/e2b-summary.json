@@ -1,0 +1,65 @@
+[
+  {
+    "model": "e2b",
+    "n_prompt": 128,
+    "n_gen": 0,
+    "baseline": {
+      "mean_s": 0.2653277988,
+      "sd_s": 0.003279404599758649,
+      "mean_tokens_s": 482.4810402,
+      "sd_tokens_s": 5.958742770075469,
+      "n": 5
+    },
+    "candidate": {
+      "mean_s": 0.2289620358,
+      "sd_s": 0.0027400563870940173,
+      "mean_tokens_s": 559.1081476,
+      "sd_tokens_s": 6.633114659294332,
+      "n": 5
+    },
+    "speedup": 1.1588287895542901,
+    "latency_reduction_percent": 13.705975462982678
+  },
+  {
+    "model": "e2b",
+    "n_prompt": 512,
+    "n_gen": 0,
+    "baseline": {
+      "mean_s": 0.7438223986,
+      "sd_s": 0.0042865866337137475,
+      "mean_tokens_s": 688.3546622,
+      "sd_tokens_s": 3.9705447235634597,
+      "n": 5
+    },
+    "candidate": {
+      "mean_s": 0.673992526,
+      "sd_s": 0.0029813973637565377,
+      "mean_tokens_s": 759.6642426,
+      "sd_tokens_s": 3.363317197783048,
+      "n": 5
+    },
+    "speedup": 1.1036063011179444,
+    "latency_reduction_percent": 9.387976583043434
+  },
+  {
+    "model": "e2b",
+    "n_prompt": 0,
+    "n_gen": 128,
+    "baseline": {
+      "mean_s": 4.2005685243999995,
+      "sd_s": 0.1124240469865776,
+      "mean_tokens_s": 30.4894066,
+      "sd_tokens_s": 0.8101288507109847,
+      "n": 5
+    },
+    "candidate": {
+      "mean_s": 3.668769454,
+      "sd_s": 0.24829096954791022,
+      "mean_tokens_s": 35.0150934,
+      "sd_tokens_s": 2.32830622657723,
+      "n": 5
+    },
+    "speedup": 1.144952981392763,
+    "latency_reduction_percent": 12.660168910730018
+  }
+]

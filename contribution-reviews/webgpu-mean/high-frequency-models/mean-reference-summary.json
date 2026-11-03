@@ -1,0 +1,10 @@
+[
+  {
+    "model": "e2b",
+    "result": "MEAN_REFERENCE nodes=1280 rows=1640 max_abs=5.70616975892e-07 nmse=1.5136934482e-15"
+  },
+  {
+    "model": "e4b",
+    "result": "MEAN_REFERENCE nodes=1280 rows=1640 max_abs=5.11940015713e-07 nmse=1.74385474693e-15"
+  }
+]

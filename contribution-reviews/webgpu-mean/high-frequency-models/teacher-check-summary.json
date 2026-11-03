@@ -1,0 +1,36 @@
+[
+  {
+    "model": "e2b",
+    "teacher_forced_tokens": 128,
+    "top1_matches": 127,
+    "compared_logit_positions": [
+      {
+        "generated_position": 0,
+        "max_abs_difference": 0.3121318817138672,
+        "nmse": 7.126785073689736e-06
+      },
+      {
+        "generated_position": 127,
+        "max_abs_difference": 0.4890146255493164,
+        "nmse": 9.21578964734021e-05
+      }
+    ]
+  },
+  {
+    "model": "e4b",
+    "teacher_forced_tokens": 128,
+    "top1_matches": 128,
+    "compared_logit_positions": [
+      {
+        "generated_position": 0,
+        "max_abs_difference": 0.38687992095947266,
+        "nmse": 1.823350124054285e-05
+      },
+      {
+        "generated_position": 127,
+        "max_abs_difference": 0.34799861907958984,
+        "nmse": 1.1426529768055525e-05
+      }
+    ]
+  }
+]

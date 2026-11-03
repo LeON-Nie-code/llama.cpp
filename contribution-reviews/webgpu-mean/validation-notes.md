@@ -1,5 +1,7 @@
 # WebGPU MEAN validation
 
+Additional high-frequency Gemma3n measurements and output checks: [high-frequency-models](high-frequency-models/README.md). The PR preview now uses those results.
+
 Code branch: `preview/webgpu-mean`
 Base: `b74298c109c107494b792c30af4bb8fa0ce1eb2f`
 Candidate: `afcd18a` (code and documentation only)

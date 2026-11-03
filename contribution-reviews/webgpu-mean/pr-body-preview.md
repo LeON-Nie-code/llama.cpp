@@ -20,16 +20,20 @@ test-backend-ops test -b WebGPU -o MEAN,SUM_ROWS,SUM
 test-backend-ops perf -b WebGPU -o MEAN
 ```
 
-Full TTS inference, using the same text, reference audio, seed and device settings. Five measured runs per version, alternating execution order; mean +/- SD. Includes reference-speaker encoding, prompt evaluation, generation and waveform decoding; excludes model loading.
+Full-model `llama-bench` results for Gemma3n E2B/E4B Q4_K_M. Five runs per version, alternating execution order, with the standard in-process warmup. Same weights and settings: WebGPU, two CPU threads, batch/microbatch 512, flash attention off. Model loading and warmup are excluded. Values are tokens/s, mean +/- SD.
 
-| Model | Frames | Upstream (s) | PR (s) |
-|---|---:|---:|---:|
-| PocketTTS | 64 | 1.068 +/- 0.029 | 1.035 +/- 0.033 |
-| Qwen3-TTS 0.6B (Q4_K_M) | 16 | 9.634 +/- 0.147 | 9.685 +/- 0.112 |
+| Model | Test | Upstream | PR |
+|---|---|---:|---:|
+| Gemma3n E2B | pp128 | 482.48 +/- 5.96 | 559.11 +/- 6.63 |
+| Gemma3n E2B | pp512 | 688.35 +/- 3.97 | 759.66 +/- 3.36 |
+| Gemma3n E2B | tg128 | 30.49 +/- 0.81 | 35.02 +/- 2.33 |
+| Gemma3n E4B | pp128 | 331.83 +/- 1.74 | 384.40 +/- 2.21 |
+| Gemma3n E4B | pp512 | 450.13 +/- 1.97 | 524.99 +/- 2.76 |
+| Gemma3n E4B | tg128 | 26.87 +/- 0.95 | 32.17 +/- 2.06 |
 
-Execution traces confirm that all 256 `MEAN` calls in PocketTTS and all 7 in Qwen3-TTS move from CPU to WebGPU. Overall timing changes are small: PocketTTS reduces 512 values per call, while Qwen3-TTS uses `MEAN` only in speaker encoding; other operations dominate the full runs. The Qwen3-TTS timing difference is smaller than run-to-run variation.
+Both models execute `MEAN` in the first 10 FFN layers: 1,280 calls for 128 decode steps. Traces confirm the calls move from CPU to WebGPU. Row widths are 8,192 for E2B and 16,384 for E4B.
 
-PocketTTS produced byte-identical audio. Qwen3-TTS speaker embeddings had normalized mean squared error of `3.8e-8`; its sampled audio was not bit-identical.
+A separate natural-text check validated every executed `MEAN` against a double-precision reference (maximum absolute error below `6e-7`). E4B generated the same 128 greedy tokens; E2B diverged at token 93. With identical teacher-forced prefixes, top-1 agreement was 127/128 for E2B and 128/128 for E4B.
 
 ## Requirements
 

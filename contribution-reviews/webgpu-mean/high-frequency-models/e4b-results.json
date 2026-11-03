@@ -1,0 +1,420 @@
+[
+  {
+    "model": "e4b",
+    "variant": "baseline",
+    "trial": -1,
+    "wall_s": 11.380724127870053,
+    "measurements": [
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 0,
+        "n_gen": 128,
+        "avg_ns": 4700760745,
+        "avg_ts": 27.229635,
+        "samples_ns": [
+          4700760745
+        ]
+      }
+    ],
+    "trace": "OP_TRACE graphs=2967 nodes=843402 mean_nodes=2580 mean_creations=70 webgpu_mean=0 cpu_mean=1290"
+  },
+  {
+    "model": "e4b",
+    "variant": "candidate",
+    "trial": -1,
+    "wall_s": 8.341665978077799,
+    "measurements": [
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 0,
+        "n_gen": 128,
+        "avg_ns": 3828476481,
+        "avg_ts": 33.433665,
+        "samples_ns": [
+          3828476481
+        ]
+      }
+    ],
+    "trace": "OP_TRACE graphs=387 nodes=843402 mean_nodes=2580 mean_creations=70 webgpu_mean=1290 cpu_mean=0"
+  },
+  {
+    "model": "e4b",
+    "variant": "candidate",
+    "trial": 0,
+    "wall_s": 11.444630364887416,
+    "measurements": [
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 128,
+        "n_gen": 0,
+        "avg_ns": 332976773,
+        "avg_ts": 384.411197,
+        "samples_ns": [
+          332976773
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 512,
+        "n_gen": 0,
+        "avg_ns": 973045566,
+        "avg_ts": 526.182964,
+        "samples_ns": [
+          973045566
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 0,
+        "n_gen": 128,
+        "avg_ns": 3748393407,
+        "avg_ts": 34.147963,
+        "samples_ns": [
+          3748393407
+        ]
+      }
+    ]
+  },
+  {
+    "model": "e4b",
+    "variant": "baseline",
+    "trial": 0,
+    "wall_s": 12.670637399889529,
+    "measurements": [
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 128,
+        "n_gen": 0,
+        "avg_ns": 387379785,
+        "avg_ts": 330.425089,
+        "samples_ns": [
+          387379785
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 512,
+        "n_gen": 0,
+        "avg_ns": 1138011362,
+        "avg_ts": 449.907635,
+        "samples_ns": [
+          1138011362
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 0,
+        "n_gen": 128,
+        "avg_ns": 4646098703,
+        "avg_ts": 27.549996,
+        "samples_ns": [
+          4646098703
+        ]
+      }
+    ]
+  },
+  {
+    "model": "e4b",
+    "variant": "baseline",
+    "trial": 1,
+    "wall_s": 12.965084756957367,
+    "measurements": [
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 128,
+        "n_gen": 0,
+        "avg_ns": 386532414,
+        "avg_ts": 331.14946,
+        "samples_ns": [
+          386532414
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 512,
+        "n_gen": 0,
+        "avg_ns": 1145008679,
+        "avg_ts": 447.158183,
+        "samples_ns": [
+          1145008679
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 0,
+        "n_gen": 128,
+        "avg_ns": 4940637486,
+        "avg_ts": 25.907588,
+        "samples_ns": [
+          4940637486
+        ]
+      }
+    ]
+  },
+  {
+    "model": "e4b",
+    "variant": "candidate",
+    "trial": 1,
+    "wall_s": 11.752297499915585,
+    "measurements": [
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 128,
+        "n_gen": 0,
+        "avg_ns": 335948200,
+        "avg_ts": 381.01112,
+        "samples_ns": [
+          335948200
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 512,
+        "n_gen": 0,
+        "avg_ns": 983482444,
+        "avg_ts": 520.599024,
+        "samples_ns": [
+          983482444
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 0,
+        "n_gen": 128,
+        "avg_ns": 4201316127,
+        "avg_ts": 30.466643,
+        "samples_ns": [
+          4201316127
+        ]
+      }
+    ]
+  },
+  {
+    "model": "e4b",
+    "variant": "candidate",
+    "trial": 2,
+    "wall_s": 11.660168775124475,
+    "measurements": [
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 128,
+        "n_gen": 0,
+        "avg_ns": 333093183,
+        "avg_ts": 384.276853,
+        "samples_ns": [
+          333093183
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 512,
+        "n_gen": 0,
+        "avg_ns": 973075010,
+        "avg_ts": 526.167042,
+        "samples_ns": [
+          973075010
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 0,
+        "n_gen": 128,
+        "avg_ns": 4140139425,
+        "avg_ts": 30.916833,
+        "samples_ns": [
+          4140139425
+        ]
+      }
+    ]
+  },
+  {
+    "model": "e4b",
+    "variant": "baseline",
+    "trial": 2,
+    "wall_s": 12.701313837897032,
+    "measurements": [
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 128,
+        "n_gen": 0,
+        "avg_ns": 383933348,
+        "avg_ts": 333.391201,
+        "samples_ns": [
+          383933348
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 512,
+        "n_gen": 0,
+        "avg_ns": 1132670895,
+        "avg_ts": 452.028919,
+        "samples_ns": [
+          1132670895
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 0,
+        "n_gen": 128,
+        "avg_ns": 4767790226,
+        "avg_ts": 26.846819,
+        "samples_ns": [
+          4767790226
+        ]
+      }
+    ]
+  },
+  {
+    "model": "e4b",
+    "variant": "baseline",
+    "trial": 3,
+    "wall_s": 12.403267201967537,
+    "measurements": [
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 128,
+        "n_gen": 0,
+        "avg_ns": 383243916,
+        "avg_ts": 333.990951,
+        "samples_ns": [
+          383243916
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 512,
+        "n_gen": 0,
+        "avg_ns": 1133189609,
+        "avg_ts": 451.822004,
+        "samples_ns": [
+          1133189609
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 0,
+        "n_gen": 128,
+        "avg_ns": 4561130035,
+        "avg_ts": 28.063221,
+        "samples_ns": [
+          4561130035
+        ]
+      }
+    ]
+  },
+  {
+    "model": "e4b",
+    "variant": "candidate",
+    "trial": 3,
+    "wall_s": 11.166413084836677,
+    "measurements": [
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 128,
+        "n_gen": 0,
+        "avg_ns": 330615335,
+        "avg_ts": 387.156875,
+        "samples_ns": [
+          330615335
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 512,
+        "n_gen": 0,
+        "avg_ns": 970102803,
+        "avg_ts": 527.779116,
+        "samples_ns": [
+          970102803
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 0,
+        "n_gen": 128,
+        "avg_ns": 3691404222,
+        "avg_ts": 34.675151,
+        "samples_ns": [
+          3691404222
+        ]
+      }
+    ]
+  },
+  {
+    "model": "e4b",
+    "variant": "candidate",
+    "trial": 4,
+    "wall_s": 11.759461000096053,
+    "measurements": [
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 128,
+        "n_gen": 0,
+        "avg_ns": 332363903,
+        "avg_ts": 385.120041,
+        "samples_ns": [
+          332363903
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 512,
+        "n_gen": 0,
+        "avg_ns": 976708497,
+        "avg_ts": 524.20963,
+        "samples_ns": [
+          976708497
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 0,
+        "n_gen": 128,
+        "avg_ns": 4177709568,
+        "avg_ts": 30.638798,
+        "samples_ns": [
+          4177709568
+        ]
+      }
+    ]
+  },
+  {
+    "model": "e4b",
+    "variant": "baseline",
+    "trial": 4,
+    "wall_s": 13.009249723050743,
+    "measurements": [
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 128,
+        "n_gen": 0,
+        "avg_ns": 387634549,
+        "avg_ts": 330.207925,
+        "samples_ns": [
+          387634549
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 512,
+        "n_gen": 0,
+        "avg_ns": 1138488443,
+        "avg_ts": 449.719102,
+        "samples_ns": [
+          1138488443
+        ]
+      },
+      {
+        "model_type": "gemma3n E4B Q4_K - Medium",
+        "n_prompt": 0,
+        "n_gen": 128,
+        "avg_ns": 4929571010,
+        "avg_ts": 25.965748,
+        "samples_ns": [
+          4929571010
+        ]
+      }
+    ]
+  }
+]

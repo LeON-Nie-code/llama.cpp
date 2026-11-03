@@ -1,0 +1,22 @@
+[
+  {
+    "model": "e2b",
+    "generated_tokens": 128,
+    "identical_tokens": false,
+    "token_mismatches": 36,
+    "logits_samples": "after prompt and before final generated token",
+    "finite_logit_values": 524288,
+    "max_abs_logit_difference": 27.42042088508606,
+    "logits_nmse": 0.04724137538619683
+  },
+  {
+    "model": "e4b",
+    "generated_tokens": 128,
+    "identical_tokens": true,
+    "token_mismatches": 0,
+    "logits_samples": "after prompt and before final generated token",
+    "finite_logit_values": 524288,
+    "max_abs_logit_difference": 0.38687992095947266,
+    "logits_nmse": 1.4511287006726282e-05
+  }
+]
