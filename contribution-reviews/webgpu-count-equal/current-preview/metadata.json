@@ -1,0 +1,74 @@
+{
+  "base": "ca8daad199a9c12c5b54643b974c640939a0f7bd",
+  "head": "83dbf9b9556c51adc875809d4b110d7e3368301e",
+  "branch": "preview/webgpu-count-equal-ready",
+  "file_count": 6,
+  "measured_processes": 50,
+  "measured_count_equal_calls": 560,
+  "previous_pr": {
+    "number": 31455,
+    "merged": true
+  },
+  "duplicate_check": "No competing implementation in upstream source, PR searches, or 16 open WebGPU-labelled PR file patches",
+  "checks": [
+    {
+      "check": "webgpu",
+      "argv": [
+        "/tmp/llama-count-equal-current-build/bin/test-backend-ops",
+        "test",
+        "-b",
+        "WebGPU",
+        "-o",
+        "COUNT_EQUAL,ARGMAX,SUM,SUM_ROWS",
+        "-j",
+        "2"
+      ],
+      "returncode": 0,
+      "seconds": 2.5569486028980464
+    },
+    {
+      "check": "cpu",
+      "argv": [
+        "/tmp/llama-count-equal-current-build/bin/test-backend-ops",
+        "test",
+        "-b",
+        "CPU",
+        "-o",
+        "COUNT_EQUAL"
+      ],
+      "returncode": 0,
+      "seconds": 1.4417639700695872
+    },
+    {
+      "check": "exact",
+      "argv": [
+        "/home/leon/code/tmp/penguin/llama-webgpu-count-equal/current-preview/validate-count-equal"
+      ],
+      "returncode": 0,
+      "seconds": 4.830784391844645
+    },
+    {
+      "check": "ctest-opt-and-tensors",
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/tmp/llama-count-equal-current-build",
+        "-C",
+        "Release",
+        "--output-on-failure",
+        "-R",
+        "^(test-opt|test-backend-tensor)$",
+        "--timeout",
+        "120"
+      ],
+      "returncode": 0,
+      "seconds": 1.0162592539563775
+    }
+  ],
+  "timings_refreshed_on_current_base": true,
+  "binary_sha256": {
+    "/home/leon/code/tmp/penguin/llama-webgpu-count-equal/current-preview/backend-upstream/libggml-webgpu.so.0": "4762609a7710ef3a2fd5807b93b6440248cfe8ca48d19cac86e71a670ecdd998",
+    "/tmp/llama-count-equal-current-build/bin/libggml-webgpu.so.0": "ce2e6dc64acf632482bfd0b79d85d3e6ee3f830b6511e5931a6126f078f2908a"
+  },
+  "storage_interruption": "Evidence write failed after a successful process; all completed samples were recovered and retained; runner resumed on temporary storage."
+}

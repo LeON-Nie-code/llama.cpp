@@ -1,0 +1,17 @@
+[  0%] Generating generated/ggml-wgsl-shaders.hpp
+[  0%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml.cpp.o
+[ 25%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml.c.o
+[ 25%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml-alloc.c.o
+Embedding WGSL shaders to ggml-wgsl-shaders.hpp
+[ 25%] Built target generate_shaders
+[ 25%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-backend.cpp.o
+[ 50%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-backend-meta.cpp.o
+[ 50%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-opt.cpp.o
+[ 50%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-threading.cpp.o
+[ 75%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.o
+[ 75%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/gguf.cpp.o
+[ 75%] Linking CXX shared library ../../bin/libggml-base.so
+[ 75%] Built target ggml-base
+[ 75%] Building CXX object ggml/src/ggml-webgpu/CMakeFiles/ggml-webgpu.dir/ggml-webgpu.cpp.o
+[ 75%] Linking CXX shared library ../../../bin/libggml-webgpu.so
+[100%] Built target ggml-webgpu

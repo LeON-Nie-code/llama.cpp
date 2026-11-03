@@ -1,0 +1,95 @@
+{
+  "open_webgpu_pr_count": 16,
+  "checks": [
+    {
+      "number": 31490,
+      "title": "[WebGPU] Implement group norm kernel",
+      "hits": []
+    },
+    {
+      "number": 31473,
+      "title": "webgpu: add batched tensor API (`get_tensor_n` and `set_tensor_n`)",
+      "hits": []
+    },
+    {
+      "number": 31348,
+      "title": "webgpu: return maxBufferSize from get_max_size and avoid whole-buffer bindings in memset/clear",
+      "hits": []
+    },
+    {
+      "number": 31139,
+      "title": "Add max allocation size reporting and split MoE cache groups",
+      "hits": []
+    },
+    {
+      "number": 30898,
+      "title": "webgpu: throttle in-flight batches during prefill only",
+      "hits": []
+    },
+    {
+      "number": 30802,
+      "title": "ggml : support YaRN truncation config on openvino, sycl, vulkan, webgpu, rpc",
+      "hits": []
+    },
+    {
+      "number": 30206,
+      "title": "ggml : support `truncate=false` for YaRN",
+      "hits": []
+    },
+    {
+      "number": 30139,
+      "title": "graph : read recurrent states in place instead of copying (#28841)",
+      "hits": []
+    },
+    {
+      "number": 29247,
+      "title": "rfc: Memory eliding fusions",
+      "hits": []
+    },
+    {
+      "number": 28898,
+      "title": "ggml: support quant scales for fp8 and nvfp4",
+      "hits": []
+    },
+    {
+      "number": 28883,
+      "title": "ggml-webgpu : support GGML_OP_LEAKY_RELU via existing unary shader.  #14909.",
+      "hits": []
+    },
+    {
+      "number": 28269,
+      "title": "webgpu: add backward kernels",
+      "hits": []
+    },
+    {
+      "number": 25271,
+      "title": "ggml, server: add ggml_backend_dev_reset() for sleep mode",
+      "hits": []
+    },
+    {
+      "number": 25032,
+      "title": "ggml : unify tie-breaking to first index across all backends",
+      "hits": [
+        {
+          "file": "tests/test-backend-ops.cpp",
+          "patch": "@@ -2649,6 +2649,59 @@ struct test_argmax : public test_case {\n     }\n };\n \n+// GGML_OP_ARGMAX with ties: first-occurrence index must match across backends\n+struct test_argmax_ties : public test_case {\n+    const ggml_type type;\n+    const std::array<int64_t, 4> ne;\n+\n+    std::string vars() override {\n+        return VARS_TO_STR2(type, ne);\n+    }\n+\n+    test_argmax_ties(ggml_type type = GGML_TYPE_F32,\n+            std::array<int64_t, 4> ne = {10, 100, 1, 1})\n+        : type(type), ne(ne) {}\n+\n+    ggml_tensor * build_graph(ggml_context * ctx) override {\n+        ggml_tensor * a = ggml_new_te"
+        }
+      ]
+    },
+    {
+      "number": 21160,
+      "title": "Cross-backend profiler",
+      "hits": [
+        {
+          "file": "tools/profiler/profiler.py",
+          "patch": "@@ -0,0 +1,1362 @@\n+#!/usr/bin/env python3\n+\"\"\"llama.cpp cross-backend profiler analysis tool.\n+\n+Usage:\n+    python -m tools.profiler.profiler profile.json\n+    python -m tools.profiler.profiler profile.json --chrome-trace trace.json\n+\"\"\"\n+\n+from __future__ import annotations\n+\n+import json\n+import sys\n+from dataclasses import dataclass, field\n+from pathlib import Path\n+from typing import Optional\n+\n+\n+OP_EVENT = 0\n+COPY_EVENT = 1\n+\n+TYPE_NAMES = {0: \"OP\", 1: \"COPY\"}\n+\n+GGML_TYPE_NAMES = {\n+    0: \"F32\", 1: \"F16\", 2: \"Q4_0\", 3: \"Q4_1\",\n+    # 4, 5 removed\n+    6: \"Q5_0\", 7: \"Q5_1\", 8: \"Q8_0\","
+        }
+      ]
+    },
+    {
+      "number": 21067,
+      "title": "ggml: allow prefetching tensor overrides",
+      "hits": []
+    }
+  ]
+}

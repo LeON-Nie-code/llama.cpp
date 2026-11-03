@@ -1,0 +1,112 @@
+[
+  {
+    "model": "stories260K",
+    "context": 256,
+    "tokens": 4096,
+    "count_equal_calls_per_epoch": 16,
+    "traces": {
+      "upstream": "OP_TRACE graphs=192 nodes=10496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=0 cpu_count_equal=32",
+      "candidate": "OP_TRACE graphs=160 nodes=10496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=32 cpu_count_equal=0"
+    },
+    "results_identical": true,
+    "upstream": {
+      "mean_ms": 71.729312,
+      "sd_ms": 1.7062980588527032,
+      "processes": 5
+    },
+    "candidate": {
+      "mean_ms": 70.7524092,
+      "sd_ms": 1.9888282790362257,
+      "processes": 5
+    },
+    "speedup_vs_upstream": 1.0138073432558108
+  },
+  {
+    "model": "smol135",
+    "context": 256,
+    "tokens": 4096,
+    "count_equal_calls_per_epoch": 16,
+    "traces": {
+      "upstream": "OP_TRACE graphs=192 nodes=58496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=0 cpu_count_equal=32",
+      "candidate": "OP_TRACE graphs=160 nodes=58496 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=32 cpu_count_equal=0"
+    },
+    "results_identical": true,
+    "upstream": {
+      "mean_ms": 2215.1067682000003,
+      "sd_ms": 53.88888346387026,
+      "processes": 5
+    },
+    "candidate": {
+      "mean_ms": 2174.8062324,
+      "sd_ms": 8.572504464441362,
+      "processes": 5
+    },
+    "speedup_vs_upstream": 1.018530632844254
+  },
+  {
+    "model": "smol135",
+    "context": 1024,
+    "tokens": 4096,
+    "count_equal_calls_per_epoch": 4,
+    "traces": {
+      "upstream": "OP_TRACE graphs=48 nodes=14624 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=0 cpu_count_equal=8",
+      "candidate": "OP_TRACE graphs=40 nodes=14624 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=8 cpu_count_equal=0"
+    },
+    "results_identical": true,
+    "upstream": {
+      "mean_ms": 1940.219165,
+      "sd_ms": 11.882245157720954,
+      "processes": 5
+    },
+    "candidate": {
+      "mean_ms": 1935.6088404,
+      "sd_ms": 13.08484781848037,
+      "processes": 5
+    },
+    "speedup_vs_upstream": 1.0023818472533155
+  },
+  {
+    "model": "qwen05",
+    "context": 256,
+    "tokens": 4096,
+    "count_equal_calls_per_epoch": 16,
+    "traces": {
+      "upstream": "OP_TRACE graphs=192 nodes=51584 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=0 cpu_count_equal=32",
+      "candidate": "OP_TRACE graphs=160 nodes=51584 count_equal_nodes=64 count_equal_creations=32 webgpu_count_equal=32 cpu_count_equal=0"
+    },
+    "results_identical": true,
+    "upstream": {
+      "mean_ms": 5864.4149516,
+      "sd_ms": 34.99738868042601,
+      "processes": 5
+    },
+    "candidate": {
+      "mean_ms": 5778.3604746,
+      "sd_ms": 17.459368403796606,
+      "processes": 5
+    },
+    "speedup_vs_upstream": 1.014892542162828
+  },
+  {
+    "model": "qwen05",
+    "context": 1024,
+    "tokens": 4096,
+    "count_equal_calls_per_epoch": 4,
+    "traces": {
+      "upstream": "OP_TRACE graphs=48 nodes=12896 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=0 cpu_count_equal=8",
+      "candidate": "OP_TRACE graphs=40 nodes=12896 count_equal_nodes=16 count_equal_creations=8 webgpu_count_equal=8 cpu_count_equal=0"
+    },
+    "results_identical": true,
+    "upstream": {
+      "mean_ms": 5615.1699492,
+      "sd_ms": 137.60795825949862,
+      "processes": 5
+    },
+    "candidate": {
+      "mean_ms": 5551.3537176,
+      "sd_ms": 64.16004623391599,
+      "processes": 5
+    },
+    "speedup_vs_upstream": 1.0114956161769475
+  }
+]

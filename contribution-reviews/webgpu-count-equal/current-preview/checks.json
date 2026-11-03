@@ -1,0 +1,55 @@
+[
+  {
+    "check": "webgpu",
+    "argv": [
+      "/tmp/llama-count-equal-current-build/bin/test-backend-ops",
+      "test",
+      "-b",
+      "WebGPU",
+      "-o",
+      "COUNT_EQUAL,ARGMAX,SUM,SUM_ROWS",
+      "-j",
+      "2"
+    ],
+    "returncode": 0,
+    "seconds": 2.5569486028980464
+  },
+  {
+    "check": "cpu",
+    "argv": [
+      "/tmp/llama-count-equal-current-build/bin/test-backend-ops",
+      "test",
+      "-b",
+      "CPU",
+      "-o",
+      "COUNT_EQUAL"
+    ],
+    "returncode": 0,
+    "seconds": 1.4417639700695872
+  },
+  {
+    "check": "exact",
+    "argv": [
+      "/home/leon/code/tmp/penguin/llama-webgpu-count-equal/current-preview/validate-count-equal"
+    ],
+    "returncode": 0,
+    "seconds": 4.830784391844645
+  },
+  {
+    "check": "ctest-opt-and-tensors",
+    "argv": [
+      "ctest",
+      "--test-dir",
+      "/tmp/llama-count-equal-current-build",
+      "-C",
+      "Release",
+      "--output-on-failure",
+      "-R",
+      "^(test-opt|test-backend-tensor)$",
+      "--timeout",
+      "120"
+    ],
+    "returncode": 0,
+    "seconds": 1.0162592539563775
+  }
+]

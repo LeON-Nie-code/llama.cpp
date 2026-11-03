@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /tmp/llama-count-equal-current-build
+Test project /tmp/llama-count-equal-current-build
+    Start 48: test-opt
+1/2 Test #48: test-opt .........................   Passed    0.47 sec
+    Start 49: test-backend-tensor
+2/2 Test #49: test-backend-tensor ..............   Passed    0.40 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Label Time Summary:
+main                     =   0.40 sec*proc (1 test)
+main behavior backend    =   0.47 sec*proc (1 test)
+
+Total Test time (real) =   0.88 sec

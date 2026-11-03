@@ -1,0 +1,44 @@
+ggml_webgpu: adapter_info: vendor_id: 4318 | vendor: nvidia | architecture: lovelace | device_id: 10168 | name: NVIDIA L4 | device_desc: NVIDIA: 550.163.01 550.163.1.0
+Testing 2 devices
+
+Backend 1/2: WebGPU
+  Skipping
+Backend 2/2: CPU
+  Device description: Intel(R) Xeon(R) CPU @ 2.20GHz
+  Device memory: 48178 MB (48178 MB free)
+
+  COUNT_EQUAL(type=f32,ne=[4,500,1,1]): [1;32mOK[0m
+  COUNT_EQUAL(type=f32,ne=[4,5000,1,1]): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1,1,1,1],match_every=0,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1,1,1,1],match_every=1,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1,1,1,1],match_every=3,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[255,1,1,1],match_every=0,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[255,1,1,1],match_every=1,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[255,1,1,1],match_every=3,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[256,1,1,1],match_every=0,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[256,1,1,1],match_every=1,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[256,1,1,1],match_every=3,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[257,1,1,1],match_every=0,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[257,1,1,1],match_every=1,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[257,1,1,1],match_every=3,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1023,1,1,1],match_every=0,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1023,1,1,1],match_every=1,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1023,1,1,1],match_every=3,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1024,1,1,1],match_every=0,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1024,1,1,1],match_every=1,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1024,1,1,1],match_every=3,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1025,1,1,1],match_every=0,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1025,1,1,1],match_every=1,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1025,1,1,1],match_every=3,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[65537,1,1,1],match_every=0,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[65537,1,1,1],match_every=1,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[65537,1,1,1],match_every=3,v=0,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[257,3,1,1],match_every=3,v=1,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[17,5,1,1],match_every=1,v=1,same_src=0): [1;32mOK[0m
+  COUNT_EQUAL(ne=[257,1,1,1],match_every=1,v=1,same_src=1): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1024,1,1,1],match_every=1,v=1,same_src=1): [1;32mOK[0m
+  COUNT_EQUAL(ne=[1025,1,1,1],match_every=1,v=1,same_src=1): [1;32mOK[0m
+  31/31 tests passed
+  Backend CPU: [1;32mOK[0m
+2/2 backends passed
+[1;32mOK[0m

@@ -15,17 +15,17 @@ Tested on an NVIDIA L4 with native Dawn WebGPU.
 - All 31 COUNT_EQUAL cases pass against the CPU reference, and all 27 ARGMAX/SUM/SUM_ROWS regression cases pass.
 - Additional checks pass for exact I64 results, repeated graph execution with changing inputs, empty inputs, offset and overlapping views, and large 2D dispatches. Tests cover both sides of the single-workgroup cutoff.
 
-COUNT_EQUAL takes about 8.24 us for 256 elements and 8.04 us for 1024 elements in `test-backend-ops perf`.
+COUNT_EQUAL takes about 8.78 us for 256 elements and 8.80 us for 1024 elements in `test-backend-ops perf`.
 
 Full-model validation uses `llama_opt_epoch` on WikiText-2, including model forward computation, loss and accuracy collection. Each epoch predicts 4096 tokens and executes COUNT_EQUAL once per batch. Values below are mean +/- sample SD across five runs after warm-up:
 
 | Model | Context / batch | Upstream (ms) | PR (ms) |
 |---|---:|---:|---:|
-| Stories260K F32 | 256 | 70.51 +/- 0.78 | 70.01 +/- 0.21 |
-| SmolLM2-135M-Instruct Q4_K_M | 256 | 2214.32 +/- 44.79 | 2171.36 +/- 20.10 |
-| SmolLM2-135M-Instruct Q4_K_M | 1024 | 1947.14 +/- 6.39 | 1955.05 +/- 22.90 |
-| Qwen2.5-0.5B-Instruct Q4_K_M | 256 | 6135.14 +/- 268.13 | 6063.84 +/- 315.98 |
-| Qwen2.5-0.5B-Instruct Q4_K_M | 1024 | 5699.77 +/- 74.27 | 5735.82 +/- 101.03 |
+| Stories260K F32 | 256 | 71.73 +/- 1.71 | 70.75 +/- 1.99 |
+| SmolLM2-135M-Instruct Q4_K_M | 256 | 2215.11 +/- 53.89 | 2174.81 +/- 8.57 |
+| SmolLM2-135M-Instruct Q4_K_M | 1024 | 1940.22 +/- 11.88 | 1935.61 +/- 13.08 |
+| Qwen2.5-0.5B-Instruct Q4_K_M | 256 | 5864.41 +/- 35.00 | 5778.36 +/- 17.46 |
+| Qwen2.5-0.5B-Instruct Q4_K_M | 1024 | 5615.17 +/- 137.61 | 5551.35 +/- 64.16 |
 
 Backend traces confirm that COUNT_EQUAL runs on CPU upstream and on WebGPU with this PR. Predictions, loss and accuracy match across both versions and all repetitions.
 
