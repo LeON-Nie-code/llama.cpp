@@ -1,0 +1,14 @@
+[
+  {
+    "model": "e2b",
+    "baseline_ppl": 29.6885,
+    "candidate_ppl": 29.6811,
+    "relative_change_percent": -0.024925476194492813
+  },
+  {
+    "model": "e4b",
+    "baseline_ppl": 27.7562,
+    "candidate_ppl": 27.7657,
+    "relative_change_percent": 0.0342265872129488
+  }
+]

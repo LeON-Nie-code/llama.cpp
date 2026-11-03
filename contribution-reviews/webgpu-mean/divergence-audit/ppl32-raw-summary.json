@@ -1,0 +1,30 @@
+[
+  {
+    "model": "e2b",
+    "variant": "baseline",
+    "ppl": 29.6885,
+    "reported_uncertainty": 1.42363,
+    "wall_s": 33.41948045301251
+  },
+  {
+    "model": "e2b",
+    "variant": "candidate",
+    "ppl": 29.6811,
+    "reported_uncertainty": 1.42303,
+    "wall_s": 31.18343093409203
+  },
+  {
+    "model": "e4b",
+    "variant": "baseline",
+    "ppl": 27.7562,
+    "reported_uncertainty": 1.37111,
+    "wall_s": 47.656856724992394
+  },
+  {
+    "model": "e4b",
+    "variant": "candidate",
+    "ppl": 27.7657,
+    "reported_uncertainty": 1.37171,
+    "wall_s": 42.34128957102075
+  }
+]

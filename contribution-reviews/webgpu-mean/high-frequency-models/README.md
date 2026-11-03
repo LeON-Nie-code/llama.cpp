@@ -13,14 +13,18 @@ Code commit: `afcd18a53bd0516f80e88d1bacc11fa60cc24e31`; upstream baseline: `b74
 
 ## Results
 
-| Model | Workload | Upstream tokens/s | Candidate tokens/s | Throughput increase | Latency reduction |
-|---|---|---:|---:|---:|---:|
-| E2B | pp128 | 482.48 +/- 5.96 | 559.11 +/- 6.63 | 15.9% | 13.7% |
-| E2B | pp512 | 688.35 +/- 3.97 | 759.66 +/- 3.36 | 10.4% | 9.4% |
-| E2B | tg128 | 30.49 +/- 0.81 | 35.02 +/- 2.33 | 14.8% | 12.7% |
-| E4B | pp128 | 331.83 +/- 1.74 | 384.40 +/- 2.21 | 15.8% | 13.7% |
-| E4B | pp512 | 450.13 +/- 1.97 | 524.99 +/- 2.76 | 16.6% | 14.3% |
-| E4B | tg128 | 26.87 +/- 0.95 | 32.17 +/- 2.06 | 19.7% | 16.3% |
+| Model | Workload | Upstream seconds | Candidate seconds | Time reduction |
+|---|---|---:|---:|---:|
+| E2B | pp128 | 0.265 +/- 0.003 | 0.229 +/- 0.003 | 13.7% |
+| E2B | pp512 | 0.744 +/- 0.004 | 0.674 +/- 0.003 | 9.4% |
+| E2B | tg128 | 4.201 +/- 0.112 | 3.669 +/- 0.248 | 12.7% |
+| E4B | pp128 | 0.386 +/- 0.002 | 0.333 +/- 0.002 | 13.7% |
+| E4B | pp512 | 1.137 +/- 0.005 | 0.975 +/- 0.005 | 14.3% |
+| E4B | tg128 | 4.769 +/- 0.168 | 3.992 +/- 0.250 | 16.3% |
+
+Elapsed time is now the primary presentation for consistency with earlier previews. Raw JSON retains both elapsed time and throughput. Per run, throughput = tokens / elapsed seconds; an average of reciprocals is not exactly the reciprocal of the average. Throughput gains and latency reductions are different percentages.
+
+The earlier TTS experiments timed a complete post-loading speech request, including reference-speaker encoding. These Gemma3n experiments time separate warmed PP and TG workloads. They do not measure the same request boundary, and pp512 + tg128 should not be presented as a single 512-prompt-token/128-output-token request.
 
 ## Correctness observations
 

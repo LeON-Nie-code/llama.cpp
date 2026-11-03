@@ -1,0 +1,30 @@
+FIRST_SPLIT_TOP rank=0 id=138 logit=24.2128448 piece=  
+FIRST_SPLIT_TOP rank=1 id=669 logit=24.1760597 piece= The
+FIRST_SPLIT_TOP rank=2 id=3143 logit=22.0305729 piece= These
+FIRST_SPLIT_TOP rank=3 id=18711 logit=21.2226562 piece= Basic
+FIRST_SPLIT_TOP rank=4 id=39244 logit=17.3439713 piece= Processing
+BACKEND_OP op=DUP cpu=128 gpu=0
+BACKEND_OP op=ADD cpu=0 gpu=28672
+BACKEND_OP op=SUB cpu=0 gpu=6400
+BACKEND_OP op=MUL cpu=128 gpu=52992
+BACKEND_OP op=DIV cpu=0 gpu=256
+BACKEND_OP op=SQR cpu=0 gpu=1792
+BACKEND_OP op=SQRT cpu=0 gpu=1792
+BACKEND_OP op=SUM_ROWS cpu=0 gpu=1792
+BACKEND_OP op=MEAN cpu=0 gpu=1280
+BACKEND_OP op=REPEAT cpu=0 gpu=3968
+BACKEND_OP op=CONCAT cpu=0 gpu=3968
+BACKEND_OP op=RMS_NORM cpu=0 gpu=39936
+BACKEND_OP op=MUL_MAT cpu=0 gpu=67072
+BACKEND_OP op=SCALE cpu=0 gpu=18688
+BACKEND_OP op=CONT cpu=0 gpu=15488
+BACKEND_OP op=RESHAPE cpu=128 gpu=20608
+BACKEND_OP op=VIEW cpu=0 gpu=41728
+BACKEND_OP op=PERMUTE cpu=0 gpu=23168
+BACKEND_OP op=TRANSPOSE cpu=0 gpu=3840
+BACKEND_OP op=GET_ROWS cpu=384 gpu=128
+BACKEND_OP op=SET_ROWS cpu=128 gpu=5120
+BACKEND_OP op=SOFT_MAX cpu=0 gpu=3840
+BACKEND_OP op=ROPE cpu=0 gpu=6400
+BACKEND_OP op=UNARY cpu=0 gpu=16768
+OP_TRACE graphs=384 nodes=733184 mean_nodes=2560 mean_creations=80 webgpu_mean=1280 cpu_mean=0
