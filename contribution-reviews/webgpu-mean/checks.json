@@ -1,0 +1,125 @@
+[
+  {
+    "check": "webgpu-test",
+    "returncode": 0,
+    "seconds": 1.9507267130538821,
+    "argv": [
+      "/tmp/llama-mean-build/bin/test-backend-ops",
+      "test",
+      "-b",
+      "WebGPU",
+      "-o",
+      "MEAN,SUM_ROWS,SUM",
+      "-j",
+      "2"
+    ]
+  },
+  {
+    "check": "cpu-test",
+    "returncode": 0,
+    "seconds": 1.8648242009803653,
+    "argv": [
+      "/tmp/llama-mean-build/bin/test-backend-ops",
+      "test",
+      "-b",
+      "CPU",
+      "-o",
+      "MEAN,SUM_ROWS,SUM",
+      "-j",
+      "2"
+    ]
+  },
+  {
+    "check": "support",
+    "returncode": 0,
+    "seconds": 1.2303758738562465,
+    "argv": [
+      "/tmp/llama-mean-build/bin/test-backend-ops",
+      "support",
+      "-b",
+      "WebGPU",
+      "-o",
+      "MEAN",
+      "--output",
+      "csv"
+    ]
+  },
+  {
+    "check": "webgpu-perf-0",
+    "returncode": 0,
+    "seconds": 9.172170513076708,
+    "argv": [
+      "/tmp/llama-mean-build/bin/test-backend-ops",
+      "perf",
+      "-b",
+      "WebGPU",
+      "-o",
+      "MEAN"
+    ]
+  },
+  {
+    "check": "webgpu-perf-1",
+    "returncode": 0,
+    "seconds": 9.137565431185067,
+    "argv": [
+      "/tmp/llama-mean-build/bin/test-backend-ops",
+      "perf",
+      "-b",
+      "WebGPU",
+      "-o",
+      "MEAN"
+    ]
+  },
+  {
+    "check": "webgpu-perf-2",
+    "returncode": 0,
+    "seconds": 8.695441626943648,
+    "argv": [
+      "/tmp/llama-mean-build/bin/test-backend-ops",
+      "perf",
+      "-b",
+      "WebGPU",
+      "-o",
+      "MEAN"
+    ]
+  },
+  {
+    "check": "cpu-perf-0",
+    "returncode": 0,
+    "seconds": 13.264014743966982,
+    "argv": [
+      "/tmp/llama-mean-build/bin/test-backend-ops",
+      "perf",
+      "-b",
+      "CPU",
+      "-o",
+      "MEAN"
+    ]
+  },
+  {
+    "check": "cpu-perf-1",
+    "returncode": 0,
+    "seconds": 13.43369688699022,
+    "argv": [
+      "/tmp/llama-mean-build/bin/test-backend-ops",
+      "perf",
+      "-b",
+      "CPU",
+      "-o",
+      "MEAN"
+    ]
+  },
+  {
+    "check": "cpu-perf-2",
+    "returncode": 0,
+    "seconds": 13.359024880919605,
+    "argv": [
+      "/tmp/llama-mean-build/bin/test-backend-ops",
+      "perf",
+      "-b",
+      "CPU",
+      "-o",
+      "MEAN"
+    ]
+  }
+]

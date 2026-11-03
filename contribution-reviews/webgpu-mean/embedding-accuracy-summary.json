@@ -1,0 +1,6 @@
+{
+  "embedding_elements": 1024,
+  "max_abs_difference": 0.00022063404321670532,
+  "nmse": 3.7955958948531826e-08,
+  "cosine_similarity": 0.9999999810220426
+}
