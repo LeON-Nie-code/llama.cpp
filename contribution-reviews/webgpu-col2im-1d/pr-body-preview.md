@@ -25,6 +25,8 @@ Full TTS inference, 64 frames. Five runs per version, alternating execution orde
 
 Both versions produced byte-identical audio for each model. Traces confirm all `COL2IM_1D` executions moved from CPU to WebGPU: 32 for PocketTTS and 390 for Qwen3-TTS across each complete diagnostic run.
 
+Qwen3-TTS benefits substantially because its waveform decoder repeatedly uses `COL2IM_1D`; keeping these operations on the GPU avoids CPU fallbacks and associated transfer and synchronization overhead.
+
 ## Requirements
 
 - I have read and agree with the [contributing guidelines](https://github.com/ggml-org/llama.cpp/blob/master/CONTRIBUTING.md)
