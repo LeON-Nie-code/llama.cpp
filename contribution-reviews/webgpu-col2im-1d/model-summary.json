@@ -1,0 +1,40 @@
+[
+  {
+    "model": "pocket",
+    "baseline": {
+      "mean_s": 1.1580972,
+      "sd_s": 0.0347157499083629,
+      "n": 5
+    },
+    "candidate": {
+      "mean_s": 0.8384666000000001,
+      "sd_s": 0.07498655986775232,
+      "n": 5
+    },
+    "speedup": 1.38120850609911,
+    "traces": {
+      "baseline": "OP_TRACE graphs=920 nodes=57528 mean_nodes=512 mean_creations=260 webgpu_mean=0 cpu_mean=256",
+      "candidate": "OP_TRACE graphs=856 nodes=57528 mean_nodes=512 mean_creations=260 webgpu_mean=0 cpu_mean=256"
+    },
+    "pcm_identical": true
+  },
+  {
+    "model": "qwen06",
+    "baseline": {
+      "mean_s": 33.299393800000004,
+      "sd_s": 0.36091510569066093,
+      "n": 5
+    },
+    "candidate": {
+      "mean_s": 5.6762738,
+      "sd_s": 0.2022093605652322,
+      "n": 5
+    },
+    "speedup": 5.866417825017533,
+    "traces": {
+      "baseline": "OP_TRACE graphs=1167 nodes=990474 mean_nodes=14 mean_creations=14 webgpu_mean=0 cpu_mean=7",
+      "candidate": "OP_TRACE graphs=387 nodes=990474 mean_nodes=14 mean_creations=14 webgpu_mean=0 cpu_mean=7"
+    },
+    "pcm_identical": true
+  }
+]
