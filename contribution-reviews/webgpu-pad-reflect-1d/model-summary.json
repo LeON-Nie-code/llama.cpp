@@ -1,0 +1,21 @@
+[
+  {
+    "model": "qwen06",
+    "baseline": {
+      "mean_s": 9.636855,
+      "sd_s": 0.06877820806040277,
+      "n": 5
+    },
+    "candidate": {
+      "mean_s": 9.662916,
+      "sd_s": 0.07791709721556614,
+      "n": 5
+    },
+    "speedup": 0.9973029880421191,
+    "traces": {
+      "baseline": "OP_TRACE graphs=337 nodes=261546 mean_nodes=14 mean_creations=14 webgpu_mean=7 cpu_mean=0",
+      "candidate": "OP_TRACE graphs=295 nodes=261546 mean_nodes=14 mean_creations=14 webgpu_mean=7 cpu_mean=0"
+    },
+    "pcm_identical": true
+  }
+]

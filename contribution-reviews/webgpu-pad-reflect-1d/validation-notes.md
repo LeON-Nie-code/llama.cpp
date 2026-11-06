@@ -1,0 +1,11 @@
+# PAD_REFLECT_1D validation
+
+Baseline 67107ac34f62882d8b53ea41ad68010ea635b9be, same native Dawn/L4 toolchain. Reuses PAD shader; reflection flag is included in pipeline equality/hash, circular flag is disabled for reflection. F32 contiguous input gate matches public op contract. Reflection does not repeat endpoints. Existing params have two reflection padding values followed by zeroed unused op_params, so higher-axis padding stays zero.
+
+CPU and WebGPU: 44/44 PAD+PAD_REFLECT_1D cases passed. Existing reflection test corrected from 2D tensor creation to 4D, now exercising its declared shape. Added zero padding/single-width, asymmetric maximum padding, 4-byte offset view, real Qwen shape and 67,108,868-output test (over 65,535 workgroups at WG1024). Existing zero/circular PAD cases passed in the same run. C++ clang-format22 and EditorConfig checks passed.
+
+The remaining CPU operation is node_12, immediately after mel transpose/CONT and before first IM2COL. Scheduler log shows CONT->PAD_REFLECT_1D->IM2COL on CPU, then MUL_MAT on WebGPU. All later 21 reflection nodes run on GPU. Thus the kernel supports the shape, but backend graph partitioning retains the first input-side group on CPU. No scheduler/core changes are included to force an additional transfer.
+
+Full Qwen3-TTS 0.6B Q4_K_M/Q8_0 mmproj request: 16 frames, fixed text/reference audio, seed1234/temp0, two threads, WebGPU backbone/mmproj, FA off. Five fresh-process runs per variant alternating order after an excluded diagnostic pair. Timer includes set_input/reference encoder, prompt, generation and vocoder; model/file loading excluded. Graph first-use costs inside the request are included. Baseline WebGPU library separately compiled from same commit; identical model/core/executable and other library code. Diagnostic pilot with concurrent tracing excluded and all formal runs restarted without concurrent diagnostics. The older COL2IM contribution is not stacked into either version, and MEAN is enabled on both. Do not compare absolute runtimes against previous contributions' baselines.
+
+Only Qwen was full-model benchmarked. Chatterbox source has a caller but was not benchmarked. No end-to-end speedup is assumed from the number of calls moved.
