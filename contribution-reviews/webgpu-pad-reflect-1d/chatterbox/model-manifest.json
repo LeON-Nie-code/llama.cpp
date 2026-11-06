@@ -1,0 +1,1 @@
+{"repo":"ggml-org/chatterbox-turbo-GGUF","revision":"66f0393558d0ac1e0337e23a4d15f26e8eca0e12","files":["chatterbox-turbo-Q8_0.gguf","mmproj-chatterbox-turbo-F16.gguf"],"device":"NVIDIA L4","backend":"native Dawn WebGPU"}

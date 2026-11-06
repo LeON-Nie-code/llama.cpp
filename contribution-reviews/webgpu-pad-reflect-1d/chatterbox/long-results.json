@@ -1,0 +1,98 @@
+[
+  {
+    "variant": "baseline",
+    "trial": -1,
+    "input_s": 0.232045,
+    "full_s": 4.424249,
+    "samples": 248632,
+    "pcm_sha256": "93e0d4f7b08f7d57b0f9b0770d807b9afb3724f3e9e5f0fd9faee1244741fd59"
+  },
+  {
+    "variant": "candidate",
+    "trial": -1,
+    "input_s": 0.214312,
+    "full_s": 4.347779,
+    "samples": 248632,
+    "pcm_sha256": "93e0d4f7b08f7d57b0f9b0770d807b9afb3724f3e9e5f0fd9faee1244741fd59"
+  },
+  {
+    "variant": "candidate",
+    "trial": 0,
+    "input_s": 0.246773,
+    "full_s": 4.502436,
+    "samples": 248632,
+    "pcm_sha256": "93e0d4f7b08f7d57b0f9b0770d807b9afb3724f3e9e5f0fd9faee1244741fd59"
+  },
+  {
+    "variant": "baseline",
+    "trial": 0,
+    "input_s": 0.248391,
+    "full_s": 4.524984,
+    "samples": 248632,
+    "pcm_sha256": "93e0d4f7b08f7d57b0f9b0770d807b9afb3724f3e9e5f0fd9faee1244741fd59"
+  },
+  {
+    "variant": "baseline",
+    "trial": 1,
+    "input_s": 0.231777,
+    "full_s": 4.271272,
+    "samples": 248632,
+    "pcm_sha256": "93e0d4f7b08f7d57b0f9b0770d807b9afb3724f3e9e5f0fd9faee1244741fd59"
+  },
+  {
+    "variant": "candidate",
+    "trial": 1,
+    "input_s": 0.232584,
+    "full_s": 4.307569,
+    "samples": 248632,
+    "pcm_sha256": "93e0d4f7b08f7d57b0f9b0770d807b9afb3724f3e9e5f0fd9faee1244741fd59"
+  },
+  {
+    "variant": "candidate",
+    "trial": 2,
+    "input_s": 0.226186,
+    "full_s": 4.397464,
+    "samples": 248632,
+    "pcm_sha256": "93e0d4f7b08f7d57b0f9b0770d807b9afb3724f3e9e5f0fd9faee1244741fd59"
+  },
+  {
+    "variant": "baseline",
+    "trial": 2,
+    "input_s": 0.233387,
+    "full_s": 4.355204,
+    "samples": 248632,
+    "pcm_sha256": "93e0d4f7b08f7d57b0f9b0770d807b9afb3724f3e9e5f0fd9faee1244741fd59"
+  },
+  {
+    "variant": "baseline",
+    "trial": 3,
+    "input_s": 0.239058,
+    "full_s": 4.236943,
+    "samples": 248632,
+    "pcm_sha256": "93e0d4f7b08f7d57b0f9b0770d807b9afb3724f3e9e5f0fd9faee1244741fd59"
+  },
+  {
+    "variant": "candidate",
+    "trial": 3,
+    "input_s": 0.222426,
+    "full_s": 4.264469,
+    "samples": 248632,
+    "pcm_sha256": "93e0d4f7b08f7d57b0f9b0770d807b9afb3724f3e9e5f0fd9faee1244741fd59"
+  },
+  {
+    "variant": "candidate",
+    "trial": 4,
+    "input_s": 0.229371,
+    "full_s": 4.614509,
+    "samples": 248632,
+    "pcm_sha256": "93e0d4f7b08f7d57b0f9b0770d807b9afb3724f3e9e5f0fd9faee1244741fd59"
+  },
+  {
+    "variant": "baseline",
+    "trial": 4,
+    "input_s": 0.256204,
+    "full_s": 4.654581,
+    "samples": 248632,
+    "pcm_sha256": "93e0d4f7b08f7d57b0f9b0770d807b9afb3724f3e9e5f0fd9faee1244741fd59"
+  }
+]
