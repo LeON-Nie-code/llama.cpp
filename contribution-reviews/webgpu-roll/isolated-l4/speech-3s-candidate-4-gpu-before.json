@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-08T10:00:03.370749+00:00",
+  "monotonic": 2177819.759609687,
+  "gpu_util": "20 %",
+  "memory_used": "1 MiB",
+  "memory_free": "22479 MiB",
+  "sm_clock": "2040 MHz",
+  "temperature": "54 C",
+  "processes": [],
+  "foreign_pids": [],
+  "host_load_average": [
+    1.099609375,
+    0.60986328125,
+    0.5810546875
+  ]
+}

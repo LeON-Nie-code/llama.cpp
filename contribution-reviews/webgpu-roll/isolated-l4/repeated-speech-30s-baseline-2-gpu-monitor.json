@@ -1,0 +1,193 @@
+{
+  "benchmark_pid": 1395086,
+  "samples": [
+    {
+      "utc": "2026-11-08T10:01:16.876834+00:00",
+      "monotonic": 2177893.265694215,
+      "gpu_util": "0 %",
+      "memory_used": "1 MiB",
+      "memory_free": "22479 MiB",
+      "sm_clock": "2040 MHz",
+      "temperature": "59 C",
+      "processes": [],
+      "foreign_pids": [],
+      "host_load_average": [
+        0.98876953125,
+        0.7080078125,
+        0.62158203125
+      ]
+    },
+    {
+      "utc": "2026-11-08T10:01:18.007588+00:00",
+      "monotonic": 2177894.396449664,
+      "gpu_util": "10 %",
+      "memory_used": "1234 MiB",
+      "memory_free": "21245 MiB",
+      "sm_clock": "2040 MHz",
+      "temperature": "59 C",
+      "processes": [
+        {
+          "pid": 1395086,
+          "type": "C+G",
+          "memory": "1207 MiB"
+        }
+      ],
+      "foreign_pids": [],
+      "host_load_average": [
+        0.98876953125,
+        0.7080078125,
+        0.62158203125
+      ]
+    },
+    {
+      "utc": "2026-11-08T10:01:19.131400+00:00",
+      "monotonic": 2177895.52026169,
+      "gpu_util": "7 %",
+      "memory_used": "2149 MiB",
+      "memory_free": "20330 MiB",
+      "sm_clock": "2040 MHz",
+      "temperature": "58 C",
+      "processes": [
+        {
+          "pid": 1395086,
+          "type": "C+G",
+          "memory": "2128 MiB"
+        }
+      ],
+      "foreign_pids": [],
+      "host_load_average": [
+        0.98876953125,
+        0.7080078125,
+        0.62158203125
+      ]
+    },
+    {
+      "utc": "2026-11-08T10:01:20.276405+00:00",
+      "monotonic": 2177896.665264571,
+      "gpu_util": "86 %",
+      "memory_used": "1990 MiB",
+      "memory_free": "20490 MiB",
+      "sm_clock": "1950 MHz",
+      "temperature": "62 C",
+      "processes": [
+        {
+          "pid": 1395086,
+          "type": "C+G",
+          "memory": "1969 MiB"
+        }
+      ],
+      "foreign_pids": [],
+      "host_load_average": [
+        1.22998046875,
+        0.7626953125,
+        0.64013671875
+      ]
+    },
+    {
+      "utc": "2026-11-08T10:01:21.381167+00:00",
+      "monotonic": 2177897.77003383,
+      "gpu_util": "86 %",
+      "memory_used": "1990 MiB",
+      "memory_free": "20490 MiB",
+      "sm_clock": "2025 MHz",
+      "temperature": "60 C",
+      "processes": [
+        {
+          "pid": 1395086,
+          "type": "C+G",
+          "memory": "1969 MiB"
+        }
+      ],
+      "foreign_pids": [],
+      "host_load_average": [
+        1.22998046875,
+        0.7626953125,
+        0.64013671875
+      ]
+    },
+    {
+      "utc": "2026-11-08T10:01:22.514687+00:00",
+      "monotonic": 2177898.903546389,
+      "gpu_util": "83 %",
+      "memory_used": "1990 MiB",
+      "memory_free": "20490 MiB",
+      "sm_clock": "1995 MHz",
+      "temperature": "62 C",
+      "processes": [
+        {
+          "pid": 1395086,
+          "type": "C+G",
+          "memory": "1969 MiB"
+        }
+      ],
+      "foreign_pids": [],
+      "host_load_average": [
+        1.22998046875,
+        0.7626953125,
+        0.64013671875
+      ]
+    },
+    {
+      "utc": "2026-11-08T10:01:23.660097+00:00",
+      "monotonic": 2177900.048960389,
+      "gpu_util": "88 %",
+      "memory_used": "1990 MiB",
+      "memory_free": "20490 MiB",
+      "sm_clock": "1905 MHz",
+      "temperature": "62 C",
+      "processes": [
+        {
+          "pid": 1395086,
+          "type": "C+G",
+          "memory": "1969 MiB"
+        }
+      ],
+      "foreign_pids": [],
+      "host_load_average": [
+        1.22998046875,
+        0.7626953125,
+        0.64013671875
+      ]
+    },
+    {
+      "utc": "2026-11-08T10:01:24.769001+00:00",
+      "monotonic": 2177901.157862339,
+      "gpu_util": "85 %",
+      "memory_used": "1990 MiB",
+      "memory_free": "20490 MiB",
+      "sm_clock": "2025 MHz",
+      "temperature": "61 C",
+      "processes": [
+        {
+          "pid": 1395086,
+          "type": "C+G",
+          "memory": "1969 MiB"
+        }
+      ],
+      "foreign_pids": [],
+      "host_load_average": [
+        1.4521484375,
+        0.81689453125,
+        0.658203125
+      ]
+    },
+    {
+      "utc": "2026-11-08T10:01:25.764677+00:00",
+      "monotonic": 2177902.153538756,
+      "gpu_util": "55 %",
+      "memory_used": "1 MiB",
+      "memory_free": "22479 MiB",
+      "sm_clock": "2025 MHz",
+      "temperature": "60 C",
+      "processes": [],
+      "foreign_pids": [],
+      "host_load_average": [
+        1.4521484375,
+        0.81689453125,
+        0.658203125
+      ]
+    }
+  ],
+  "errors": [],
+  "foreign_process_detected": false
+}

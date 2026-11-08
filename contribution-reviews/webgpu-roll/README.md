@@ -33,7 +33,9 @@ See `review-guidance.md` for concrete yomaytk review links and the checks applie
 - Two-chunk WikiText control perplexity: `9.1721 +/- 2.05617` for both variants. This small control is not a broad quality evaluation.
 - Upstream multi-platform CI has not run for this private preview.
 
-## Operator microbenchmarks
+## Earlier operator microbenchmarks
+
+These operator measurements were collected in the earlier shared-GPU session and are retained for reference, separately from the idle-L4 full-model results below.
 
 `test-backend-ops perf -o ROLL`; CPU uses the test tool's default thread setting. Numbers below are tool-reported time per execution, not full-model latency or pure GPU shader timestamps.
 
@@ -44,14 +46,14 @@ See `review-guidance.md` for concrete yomaytk review links and the checks applie
 
 The CPU can copy these small tensors faster in isolation. The motivation is maintaining GPU residency between encoder layers, removing transfers and synchronization boundaries. Do not describe the microbenchmark as a GPU arithmetic speedup.
 
-## Full-model experiment
+## Full-model experiment: idle L4
 
 Model from the publisher: `LiquidAI/LFM2.5-Audio-1.5B-GGUF-LEAP`, revision `d78ca1db4adae8be7a7dbab003d128abdb5b94c6`:
 
 - `LFM2.5-Audio-1.5B-Q8_0.gguf`.
 - `mmproj-LFM2.5-Audio-1.5B-F16.gguf`.
 
-One natural 3-second recording is used directly, then repeated ten times to construct the second, 30-second input. The latter is not an independent natural long recording. Greedy decoding, maximum 64 generated tokens, four CPU threads, context 2048, batch/ubatch 512, GPU offload enabled. The short input produces 14 output tokens including its end marker; the long input reaches the 64-token cap.
+One fixed 3-second speech recording is used directly, then repeated ten times to construct the second, 30-second input. The latter is not an independent natural long recording. Greedy decoding, maximum 64 generated tokens, four CPU threads, context 2048, batch/ubatch 512, GPU offload enabled. The short input produces 14 output tokens including its end marker; the long input reaches the 64-token cap.
 
 ### Comparison protocol
 
@@ -63,18 +65,23 @@ One natural 3-second recording is used directly, then repeated ten times to cons
 - Encoding time is measured separately around `mtmd_batch_encode`. Those values are nested within total inference and must not be added to it.
 - Five processes per variant and input, alternating baseline/candidate order. Each process contributes the mean of its five measured requests: 25 measured requests per variant/input. The table reports the mean and sample SD of the five process means.
 - Diagnostic processes are separate and excluded from timed statistics. Optional embedding dumps and backend tracing run only in those diagnostics. Only the driver-unload workaround is preloaded during timed runs, identically for both libraries.
-- Another inference service was active on the L4 during this experiment. Repetition reduces incidental noise but does not establish isolation. The measured full-model differences do not support a consistent speedup claim.
+- Before the experiment, ten consecutive one-second samples recorded no GPU processes, 0% GPU utilization and only 1 MiB of GPU memory in use.
+- Before each of the 24 processes (20 timed, four diagnostic), the GPU process list was empty. During execution, a one-second monitor checked both compute and graphics process lists. All 183 runtime samples contained only the benchmark process or no process; no foreign GPU process was detected, and the benchmark PID was visible in every process. A foreign process or monitoring failure would reject the measurement.
+- Host one-minute load ranged from 0.29 to 1.45 on this 12-logical-CPU machine; sampled GPU temperature ranged from 52 C to 63 C. No GPU service was stopped or modified.
+- Binary/model/audio hashes were rechecked and match the earlier experiment exactly. The only methodological addition is GPU isolation verification; code, inputs, timing boundaries and repetition counts are unchanged. The earlier shared-GPU results are archived separately and excluded from the final table.
 
 ### Results
 
 | Input | Total before | Total after | Audio encoding before | Audio encoding after |
 | --- | ---: | ---: | ---: | ---: |
-| Natural speech, 3 s | 0.346 +/- 0.078 s | 0.353 +/- 0.061 s | 0.071 +/- 0.015 s | 0.061 +/- 0.015 s |
-| Repeated speech, 30 s | 1.332 +/- 0.723 s | 1.317 +/- 0.428 s | 0.188 +/- 0.076 s | 0.164 +/- 0.046 s |
+| 3-second speech | 0.2574 +/- 0.0038 s | 0.2440 +/- 0.0018 s | 0.0515 +/- 0.0026 s | 0.0373 +/- 0.0014 s |
+| 30-second repeated speech | 0.8419 +/- 0.0050 s | 0.8250 +/- 0.0051 s | 0.1356 +/- 0.0039 s | 0.1155 +/- 0.0036 s |
 
-Encoding means are lower, but full inference is dominated by unchanged work and shared-resource variation. No reliable end-to-end improvement or regression can be concluded from these timings.
+Full-model latency decreased by 5.2% for the short input and 2.0% for the repeated long input. Audio encoding decreased by 27.6% and 14.8%, respectively. Each of the five paired process comparisons improved for both total inference and encoding, for both inputs. These are measurements for this model and fixed inputs, not a claim about other models.
 
-For each of the seven requests in each separate diagnostic process (two warm-up and five other requests), the trace shows:
+The absolute encoding savings are approximately 14.2 ms and 20.1 ms; total inference savings are approximately 13.4 ms and 16.9 ms. ROLL runs during audio encoding, whereas later prompt processing and text decoding are unchanged. The long input generates 64 tokens rather than 14, so unchanged work dilutes the encoding-stage benefit in its full-model result.
+
+For each separate diagnostic process (two warm-up and five further requests), the trace shows:
 
 - Baseline: 119 CPU ROLL executions, zero GPU ROLL executions in total.
 - Candidate: zero CPU ROLL executions, 119 GPU ROLL executions in total.
@@ -84,8 +91,10 @@ For each of the seven requests in each separate diagnostic process (two warm-up 
 
 The older pre-implementation investigation confirmed 17 device-to-host input copies and 17 host-to-device output copies per short audio, totaling 2,924,544 bytes. This is evidence of the fallback's boundaries. Host-copy timings include waits for prior GPU work, so their disappearance does not mean all that wall time is saved.
 
-The initial single-measured-request experiment is retained locally under `initial-single-epoch` but is not the final table. An asynchronous logger can insert newlines into printed token IDs; `summarize.py` parses the complete token block up to the inference marker. Binary embedding equality is independent of that text parsing.
+The earlier shared-GPU experiment is archived under `shared-gpu` on the documentation branch and is excluded from the final table. The initial single-measured-request experiment is also retained locally under `initial-single-epoch`. An asynchronous logger can insert newlines into printed token IDs; `summarize.py` parses the complete token block up to the inference marker. Binary embedding equality is independent of that text parsing.
 
 ## Evidence
 
-`model-summary.json`, `model-results.json`, per-process command/environment JSONs and logs, `pinned-inputs.json`, loader traces, correctness/performance logs, and diagnostic source are retained with the preview. Model/audio binaries, embedding dumps and executable/shared-library binaries are not uploaded to the fork documentation branch.
+Latest full-model data and isolation records are under `isolated-l4/`: `model-summary.json`, `model-results.json`, `paired-results.json`, `isolation-summary.json`, per-process command/environment JSONs, GPU monitor samples and logs, and `pinned-inputs.json`. Root loader traces, correctness logs and diagnostic source remain valid because binaries are unchanged. Earlier shared-GPU results are under `shared-gpu/`. Model/audio binaries, embedding dumps and executable/shared-library binaries are not uploaded to the fork documentation branch.
+
+Reproduce the isolated run with `ROLL_REQUIRE_IDLE_GPU=1 ROLL_BENCH_RESULTS_DIR=<output-directory> python3 run-models.py`, then run `summarize.py` and `audit-isolation.py` with the same results directory.

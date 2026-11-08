@@ -2,8 +2,9 @@ import json
 from pathlib import Path
 import re
 import statistics
+import os
 
-root = Path(__file__).resolve().parent
+root = Path(os.environ.get('ROLL_BENCH_RESULTS_DIR', str(Path(__file__).resolve().parent)))
 rows = json.loads((root / 'model-results.json').read_text())
 for row in rows:
     tag = f"{row['scenario']}-{row['variant']}-{row['trial']}"

@@ -1,0 +1,64 @@
+[
+  {
+    "scenario": "repeated-speech-30s",
+    "pairs": [
+      {
+        "trial": 0,
+        "total_saved_s": 0.01613960000000003,
+        "audio_encoding_saved_s": 0.020619200000000004
+      },
+      {
+        "trial": 1,
+        "total_saved_s": 0.011071800000000076,
+        "audio_encoding_saved_s": 0.013268199999999994
+      },
+      {
+        "trial": 2,
+        "total_saved_s": 0.01785760000000003,
+        "audio_encoding_saved_s": 0.024639399999999992
+      },
+      {
+        "trial": 3,
+        "total_saved_s": 0.015741400000000016,
+        "audio_encoding_saved_s": 0.0187484
+      },
+      {
+        "trial": 4,
+        "total_saved_s": 0.02345240000000004,
+        "audio_encoding_saved_s": 0.02325440000000001
+      }
+    ],
+    "all_five_pairs_improved": true
+  },
+  {
+    "scenario": "speech-3s",
+    "pairs": [
+      {
+        "trial": 0,
+        "total_saved_s": 0.013405999999999973,
+        "audio_encoding_saved_s": 0.014189599999999997
+      },
+      {
+        "trial": 1,
+        "total_saved_s": 0.01205700000000004,
+        "audio_encoding_saved_s": 0.012658799999999998
+      },
+      {
+        "trial": 2,
+        "total_saved_s": 0.016929,
+        "audio_encoding_saved_s": 0.017143199999999997
+      },
+      {
+        "trial": 3,
+        "total_saved_s": 0.010267399999999982,
+        "audio_encoding_saved_s": 0.011355000000000004
+      },
+      {
+        "trial": 4,
+        "total_saved_s": 0.014341400000000004,
+        "audio_encoding_saved_s": 0.0157628
+      }
+    ],
+    "all_five_pairs_improved": true
+  }
+]

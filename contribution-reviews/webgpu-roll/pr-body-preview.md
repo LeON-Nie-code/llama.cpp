@@ -2,13 +2,16 @@
 
 Add F32 `ROLL` support to WebGPU by reusing the circular `PAD` shader, including strided inputs and offset views.
 
-LFM2.5 Audio uses `ROLL` in each of its 17 Conformer layers. This keeps those operations on GPU and removes their CPU fallback.
+LFM2.5 Audio uses `ROLL` in each of its 17 Conformer layers. Keeping it on GPU avoids repeated CPU fallback and transfers.
 
-Validation on NVIDIA L4:
+Full-model inference on NVIDIA L4, seconds (mean +/- SD over five processes after warm-up):
 
-- CPU and WebGPU `ROLL`/`PAD` tests: 48/48 passed on each backend.
-- Full-model audio inference: identical audio embeddings and generated tokens for short and repeated 30-second speech inputs. End-to-end timings showed no consistent speedup under shared GPU load.
-- Added operator performance cases for the observed model shapes.
+| Audio input | Before | After |
+| --- | ---: | ---: |
+| 3-second speech | 0.257 +/- 0.004 | 0.244 +/- 0.002 |
+| 30-second repeated speech | 0.842 +/- 0.005 | 0.825 +/- 0.005 |
+
+Audio embeddings and generated tokens are identical. CPU and WebGPU `ROLL`/`PAD` tests pass 48/48 on each backend; operator performance cases cover the observed model shapes.
 
 ## Requirements
 

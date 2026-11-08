@@ -1,0 +1,29 @@
+{
+  "idle_preflight_samples": 10,
+  "benchmark_processes": 24,
+  "timed_processes": 20,
+  "runtime_monitor_samples": 183,
+  "other_gpu_process_detected": false,
+  "benchmark_pid_observed_in_all_processes": true,
+  "sample_interval_seconds": 1,
+  "temperature_samples": [
+    "52 C",
+    "53 C",
+    "54 C",
+    "55 C",
+    "56 C",
+    "57 C",
+    "58 C",
+    "59 C",
+    "60 C",
+    "61 C",
+    "62 C",
+    "63 C"
+  ],
+  "host_load_1m_range": [
+    0.28955078125,
+    1.4521484375
+  ],
+  "start_utc": "2026-11-08T09:58:58.396526+00:00",
+  "end_utc": "2026-11-08T10:02:01.767771+00:00"
+}

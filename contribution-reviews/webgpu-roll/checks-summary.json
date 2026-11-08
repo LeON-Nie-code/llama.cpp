@@ -27,8 +27,39 @@
   "upstream_ci": "not run; no upstream PR created",
   "code_commit": "4d598af",
   "scope": "5 files, 49 additions, 17 deletions",
-  "full_model_speedup": "not established; shared GPU variation",
+  "full_model_speedup": "Idle L4: full-model latency reduced by 5.2% (3 s input) and 2.0% (30 s repeated input).",
   "backend_placement": "17 ROLL operations per inference move CPU -> WebGPU",
   "exact_embedding_and_token_checks": "passed",
-  "unwanted_attribution_scan": "no assistant/co-author trailers in code commit"
+  "unwanted_attribution_scan": "no assistant/co-author trailers in code commit",
+  "gpu_isolation": {
+    "idle_preflight_samples": 10,
+    "benchmark_processes": 24,
+    "timed_processes": 20,
+    "runtime_monitor_samples": 183,
+    "other_gpu_process_detected": false,
+    "benchmark_pid_observed_in_all_processes": true,
+    "sample_interval_seconds": 1,
+    "temperature_samples": [
+      "52 C",
+      "53 C",
+      "54 C",
+      "55 C",
+      "56 C",
+      "57 C",
+      "58 C",
+      "59 C",
+      "60 C",
+      "61 C",
+      "62 C",
+      "63 C"
+    ],
+    "host_load_1m_range": [
+      0.28955078125,
+      1.4521484375
+    ],
+    "start_utc": "2026-11-08T09:58:58.396526+00:00",
+    "end_utc": "2026-11-08T10:02:01.767771+00:00"
+  },
+  "latest_model_evidence": "isolated-l4/",
+  "measured_inferences_per_variant_per_input": 25
 }
