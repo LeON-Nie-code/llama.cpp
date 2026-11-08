@@ -1,0 +1,68 @@
+[
+  {
+    "scenario": "repeated-speech-30s",
+    "baseline": {
+      "n": 5,
+      "total_s": {
+        "mean": 1.33193224,
+        "sd": 0.7231622834249225
+      },
+      "audio_encoding_s": {
+        "mean": 0.18799764,
+        "sd": 0.07646146702939985
+      }
+    },
+    "candidate": {
+      "n": 5,
+      "total_s": {
+        "mean": 1.31742604,
+        "sd": 0.4277332036752677
+      },
+      "audio_encoding_s": {
+        "mean": 0.16405912,
+        "sd": 0.04556319506413043
+      }
+    },
+    "speedup": 1.0110110166032547,
+    "tokens_identical": true,
+    "embeddings_identical": true,
+    "placement": {
+      "baseline": "BACKEND_OP op=ROLL cpu=119 gpu=0",
+      "candidate": "BACKEND_OP op=ROLL cpu=0 gpu=119"
+    },
+    "generated_tokens": 64
+  },
+  {
+    "scenario": "speech-3s",
+    "baseline": {
+      "n": 5,
+      "total_s": {
+        "mean": 0.34559916,
+        "sd": 0.07758976563831083
+      },
+      "audio_encoding_s": {
+        "mean": 0.0708536,
+        "sd": 0.015411738581354148
+      }
+    },
+    "candidate": {
+      "n": 5,
+      "total_s": {
+        "mean": 0.35251284,
+        "sd": 0.06081004612453438
+      },
+      "audio_encoding_s": {
+        "mean": 0.06062284,
+        "sd": 0.015124813946227571
+      }
+    },
+    "speedup": 0.9803874378022657,
+    "tokens_identical": true,
+    "embeddings_identical": true,
+    "placement": {
+      "baseline": "BACKEND_OP op=ROLL cpu=119 gpu=0",
+      "candidate": "BACKEND_OP op=ROLL cpu=0 gpu=119"
+    },
+    "generated_tokens": 14
+  }
+]

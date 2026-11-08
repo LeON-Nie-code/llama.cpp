@@ -1,0 +1,72 @@
+{
+  "base_commit": "d6be065572cdb7bf64014c8c5771e210c9570e44",
+  "model_revision": "d78ca1db4adae8be7a7dbab003d128abdb5b94c6",
+  "loaded_libraries": {
+    "baseline": {
+      "libllama-common.so.0": "/mnt/data2/rsi/llama-webgpu-roll-build/bin/libllama-common.so.0",
+      "libmtmd.so.0": "/mnt/data2/rsi/llama-webgpu-roll-build/bin/libmtmd.so.0",
+      "libllama.so.0": "/mnt/data2/rsi/llama-webgpu-roll-build/bin/libllama.so.0",
+      "libggml.so.0": "/mnt/data2/rsi/llama-webgpu-roll-build/bin/libggml.so.0",
+      "libggml-webgpu.so.0": "/mnt/data2/rsi/llama-webgpu-roll-baseline-bin/libggml-webgpu.so.0",
+      "libggml-base.so.0": "/mnt/data2/rsi/llama-webgpu-roll-build/bin/libggml-base.so.0",
+      "libstdc++.so.6": "/lib/x86_64-linux-gnu/libstdc++.so.6",
+      "libgcc_s.so.1": "/lib/x86_64-linux-gnu/libgcc_s.so.1",
+      "libc.so.6": "/lib/x86_64-linux-gnu/libc.so.6",
+      "libm.so.6": "/lib/x86_64-linux-gnu/libm.so.6",
+      "libggml-cpu.so.0": "/mnt/data2/rsi/llama-webgpu-roll-build/bin/libggml-cpu.so.0",
+      "libgomp.so.1": "/lib/x86_64-linux-gnu/libgomp.so.1"
+    },
+    "candidate": {
+      "libllama-common.so.0": "/mnt/data2/rsi/llama-webgpu-roll-build/bin/libllama-common.so.0",
+      "libmtmd.so.0": "/mnt/data2/rsi/llama-webgpu-roll-build/bin/libmtmd.so.0",
+      "libllama.so.0": "/mnt/data2/rsi/llama-webgpu-roll-build/bin/libllama.so.0",
+      "libggml.so.0": "/mnt/data2/rsi/llama-webgpu-roll-build/bin/libggml.so.0",
+      "libggml-webgpu.so.0": "/mnt/data2/rsi/llama-webgpu-roll-build/bin/libggml-webgpu.so.0",
+      "libggml-base.so.0": "/mnt/data2/rsi/llama-webgpu-roll-build/bin/libggml-base.so.0",
+      "libstdc++.so.6": "/lib/x86_64-linux-gnu/libstdc++.so.6",
+      "libgcc_s.so.1": "/lib/x86_64-linux-gnu/libgcc_s.so.1",
+      "libc.so.6": "/lib/x86_64-linux-gnu/libc.so.6",
+      "libm.so.6": "/lib/x86_64-linux-gnu/libm.so.6",
+      "libggml-cpu.so.0": "/mnt/data2/rsi/llama-webgpu-roll-build/bin/libggml-cpu.so.0",
+      "libgomp.so.1": "/lib/x86_64-linux-gnu/libgomp.so.1"
+    }
+  },
+  "only_backend_library_differs": true,
+  "files": [
+    {
+      "path": "roll-evidence/mtmd-bench",
+      "bytes": 103104,
+      "sha256": "dbbf73d2148e78a1c424ba0b67d5f55e4d1035b081305408695b409ee6f26295"
+    },
+    {
+      "path": "/mnt/data2/rsi/llama-webgpu-roll-baseline-bin/libggml-webgpu.so.0",
+      "bytes": 20906936,
+      "sha256": "411fb2879c3e14981c3d8f6b4347fbcbbc0d863f48c718b3e651e95e94ae7afa"
+    },
+    {
+      "path": "/mnt/data2/rsi/llama-webgpu-roll-build/bin/libggml-webgpu.so.0",
+      "bytes": 20906984,
+      "sha256": "bfab7b1f218aea04fac597e5dbedfb6c29163175e0545566f55d6226fb40fd44"
+    },
+    {
+      "path": "/mnt/data2/rsi/llama-webgpu-roll-research/models/LFM2.5-Audio-1.5B-Q8_0.gguf",
+      "bytes": 1246253280,
+      "sha256": "a2ab2102986cf3012901fed8a0dcfe8e47e5be6307e0813f1aa1db58b7e887d8"
+    },
+    {
+      "path": "/mnt/data2/rsi/llama-webgpu-roll-research/models/mmproj-LFM2.5-Audio-1.5B-F16.gguf",
+      "bytes": 458806624,
+      "sha256": "71330d7820768417d950f2dce42227896c7f6146917453957a63ba765decf621"
+    },
+    {
+      "path": "/tmp/llama-arange-fullmodel-models/reference.wav",
+      "bytes": 144078,
+      "sha256": "2099796eb80a619329db76bfc9b9c47598539f6a836e4f058380928f9b6ba30c"
+    },
+    {
+      "path": "ce-roll-research/reference-repeated-30s.wav",
+      "bytes": 1440044,
+      "sha256": "7fdd74e5058c5f0fb9dfc0610beb89cbc606399418c23620922aae17cf28405b"
+    }
+  ]
+}

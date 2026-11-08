@@ -1,0 +1,34 @@
+{
+  "correctness": {
+    "WebGPU": {
+      "passed": 48,
+      "total": 48
+    },
+    "CPU": {
+      "passed": 48,
+      "total": 48
+    },
+    "ROLL_cases": 11
+  },
+  "format": "clang-format 22 dry-run on both changed backend files passed",
+  "editorconfig": "passed for all five changed files",
+  "diff_check": "passed",
+  "ppl_control": {
+    "baseline": 9.1721,
+    "candidate": 9.1721,
+    "chunks": 2
+  },
+  "native_targets": [
+    "test-backend-ops",
+    "llama-mtmd-cli",
+    "llama-bench",
+    "llama-perplexity"
+  ],
+  "upstream_ci": "not run; no upstream PR created",
+  "code_commit": "4d598af",
+  "scope": "5 files, 49 additions, 17 deletions",
+  "full_model_speedup": "not established; shared GPU variation",
+  "backend_placement": "17 ROLL operations per inference move CPU -> WebGPU",
+  "exact_embedding_and_token_checks": "passed",
+  "unwanted_attribution_scan": "no assistant/co-author trailers in code commit"
+}

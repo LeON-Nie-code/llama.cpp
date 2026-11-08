@@ -1,0 +1,38 @@
+{
+  "argv": [
+    "/home/leon/code/tmp/penguin/roll-evidence/mtmd-bench",
+    "-m",
+    "/mnt/data2/rsi/llama-webgpu-roll-research/models/LFM2.5-Audio-1.5B-Q8_0.gguf",
+    "--mmproj",
+    "/mnt/data2/rsi/llama-webgpu-roll-research/models/mmproj-LFM2.5-Audio-1.5B-F16.gguf",
+    "--audio",
+    "/tmp/llama-arange-fullmodel-models/reference.wav",
+    "-p",
+    "Transcribe this audio.",
+    "-n",
+    "64",
+    "-c",
+    "2048",
+    "-ub",
+    "512",
+    "-b",
+    "512",
+    "-ngl",
+    "99",
+    "-t",
+    "4",
+    "--no-warmup",
+    "--jinja",
+    "--seed",
+    "42",
+    "--temp",
+    "0"
+  ],
+  "env": {
+    "VK_ICD_FILENAMES": "/usr/share/vulkan/icd.d/nvidia_icd.json",
+    "XDG_RUNTIME_DIR": "/tmp",
+    "LD_LIBRARY_PATH": "/mnt/data2/rsi/llama-webgpu-roll-baseline-bin:/mnt/data2/rsi/llama-webgpu-roll-build/bin:/tmp/llama-dawn/lib64",
+    "LD_PRELOAD": "/tmp/llama-webgpu-count-equal-evidence/fullmodel/driver-pin.so:/home/leon/code/tmp/penguin/roll-evidence/trace-roll.so",
+    "ROLL_BENCH_EMBEDDINGS": "/home/leon/code/tmp/penguin/roll-evidence/speech-3s-baseline--1-embeddings"
+  }
+}

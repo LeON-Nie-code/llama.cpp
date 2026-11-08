@@ -1,0 +1,32 @@
+{
+  "argv": [
+    "/usr/bin/c++",
+    "-DGGML_BACKEND_SHARED",
+    "-DGGML_SHARED",
+    "-DGGML_USE_CPU",
+    "-DGGML_USE_WEBGPU",
+    "-DLLAMA_SHARED",
+    "-DLLAMA_SUBPROCESS",
+    "-I/mnt/data2/rsi/llama-webgpu-roll-work/common/.",
+    "-I/mnt/data2/rsi/llama-webgpu-roll-work/vendor/nlohmann/..",
+    "-I/mnt/data2/rsi/llama-webgpu-roll-work/vendor/sheredom/..",
+    "-I/mnt/data2/rsi/llama-webgpu-roll-work/src/../include",
+    "-I/mnt/data2/rsi/llama-webgpu-roll-work/ggml/src/../include",
+    "-I/mnt/data2/rsi/llama-webgpu-roll-work/tools/mtmd/.",
+    "-O3",
+    "-DNDEBUG",
+    "/home/leon/code/tmp/penguin/roll-evidence/mtmd-bench.cpp",
+    "-o",
+    "/home/leon/code/tmp/penguin/roll-evidence/mtmd-bench",
+    "-Wl,-rpath,/mnt/data2/rsi/llama-webgpu-roll-build/bin:",
+    "../../bin/libllama-common.so.0.9.0",
+    "../../bin/libmtmd.so.0.9.0",
+    "../../common/libllama-common-base.a",
+    "../../bin/libllama.so.0.9.0",
+    "../../bin/libggml.so.0.29.0",
+    "../../bin/libggml-cpu.so.0.29.0",
+    "../../bin/libggml-webgpu.so.0.29.0",
+    "../../bin/libggml-base.so.0.29.0"
+  ],
+  "cwd": "/mnt/data2/rsi/llama-webgpu-roll-build/tools/mtmd"
+}
