@@ -1,6 +1,6 @@
 ## Overview
 
-Add F32 `ROLL` support to WebGPU by reusing the circular `PAD` shader, including strided inputs and offset views.
+Add F32 `ROLL` support to WebGPU by reusing the circular `PAD` shader, including strided inputs and offset views. With unchanged tensor dimensions, circular padding reads `(index - shift) mod dimension`, which implements a roll. Negative shifts are normalized per axis; source strides, view offsets and dispatch sizing use the existing PAD path.
 
 LFM2.5 Audio uses `ROLL` in each of its 17 Conformer layers. Keeping it on GPU avoids repeated CPU fallback and transfers.
 
