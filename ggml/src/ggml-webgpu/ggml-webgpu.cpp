@@ -1569,6 +1569,26 @@ static webgpu_encoded_op ggml_webgpu_ssm_scan(webgpu_context & ctx,
     return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x, wg_y);
 }
 
+static webgpu_encoded_op ggml_webgpu_rwkv_wkv7(webgpu_context & ctx, ggml_tensor * dst) {
+    webgpu_pipeline pipeline = ctx->shader_lib->get_rwkv_wkv7_pipeline();
+
+    const uint32_t n_heads  = dst->src[2]->ne[1];
+    const uint32_t n_tokens = dst->src[2]->ne[2];
+    const uint32_t n_seqs   = dst->src[6]->ne[1];
+
+    std::vector<uint32_t>             params = { n_heads, n_tokens, n_tokens / n_seqs };
+    std::vector<wgpu::BindGroupEntry> entries;
+
+    for (uint32_t i = 0; i < 7; ++i) {
+        params.push_back(ggml_webgpu_tensor_misalignment(ctx, dst->src[i]) / sizeof(float));
+        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, i, dst->src[i]));
+    }
+    params.push_back(ggml_webgpu_tensor_misalignment(ctx, dst) / sizeof(float));
+    entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, 7, dst));
+
+    return ggml_backend_webgpu_build(ctx, pipeline, std::move(params), std::move(entries), n_heads, n_seqs);
+}
+
 // storage buffers of the gated delta net shader: q, k, v, g, beta, state and dst, the fused cache, then the replay inputs
 static uint32_t ggml_webgpu_gated_delta_net_n_storage_buffers(const ggml_tensor * op, bool fused_cache) {
     return 7 + (fused_cache ? 1 : 0) + (op->src[6] != nullptr ? 4 : 0);
@@ -3843,6 +3863,8 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode(webgpu_context ctx,
         case GGML_OP_SSM_SCAN:
             return ggml_webgpu_ssm_scan(ctx, src0, src1, src2, node->src[3], node->src[4], node->src[5], node->src[6],
                                         node);
+        case GGML_OP_RWKV_WKV7:
+            return ggml_webgpu_rwkv_wkv7(ctx, node);
         case GGML_OP_GATED_DELTA_NET:
             if (ggml_webgpu_gated_delta_net_n_storage_buffers(node, true) <=
                     ctx->global_ctx->capabilities.limits.maxStorageBuffersPerShaderStage &&
@@ -5389,6 +5411,33 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
         case GGML_OP_SSM_SCAN:
             supports_op = op->type == GGML_TYPE_F32 &&
                           src0->ne[0] <= ctx->webgpu_global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
+            break;
+        case GGML_OP_RWKV_WKV7:
+            {
+                const auto &  global = ctx->webgpu_global_ctx;
+                const auto &  limits = global->capabilities.limits;
+                const int64_t n_seqs = op->src[6]->ne[1];
+                supports_op = src2->ne[0] == GGML_WEBGPU_RWKV_WKV7_HEAD_SIZE && src2->ne[1] > 0 &&
+                              src2->ne[1] <= limits.maxComputeWorkgroupsPerDimension && src2->ne[2] > 0 && n_seqs > 0 &&
+                              n_seqs <= limits.maxComputeWorkgroupsPerDimension && src2->ne[2] % n_seqs == 0 &&
+                              ggml_are_same_shape(src0, src2) && limits.maxStorageBuffersPerShaderStage >= 8 &&
+                              ggml_webgpu_tensor_binding_size(op, limits.minStorageBufferOffsetAlignment) <=
+                                  limits.maxStorageBufferBindingSize;
+                for (int i = 0; supports_op && i < 7; ++i) {
+                    const ggml_tensor * src = op->src[i];
+                    supports_op = src->type == GGML_TYPE_F32 && src->ne[3] == 1 &&
+                                  ggml_webgpu_tensor_binding_size(src, limits.minStorageBufferOffsetAlignment) <=
+                                      limits.maxStorageBufferBindingSize;
+                    // Separate writable storage bindings cannot overlap in one dispatch.
+                    const ggml_tensor * base = src->view_src ? src->view_src : src;
+                    for (int j = 0; supports_op && j < i; ++j) {
+                        const ggml_tensor * other      = op->src[j];
+                        const ggml_tensor * other_base = other->view_src ? other->view_src : other;
+                        const bool overlap = src->buffer && ggml_webgpu_tensor_binding_overlap(global, src, other);
+                        supports_op        = base != other_base && !overlap;
+                    }
+                }
+            }
             break;
         case GGML_OP_GATED_DELTA_NET:
             {

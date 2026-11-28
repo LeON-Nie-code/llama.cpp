@@ -28,6 +28,7 @@
 
 #define GGML_WEBGPU_ARGSORT_MERGE_MAX_WG_SIZE 512u
 #define GGML_WEBGPU_COUNT_EQUAL_WG_SIZE       256u
+#define GGML_WEBGPU_RWKV_WKV7_HEAD_SIZE       64u
 
 // Matrix multiplication parameters
 
@@ -1360,6 +1361,8 @@ class ggml_webgpu_shader_lib {
     std::unordered_map<ggml_webgpu_upscale_pipeline_key, webgpu_pipeline, ggml_webgpu_upscale_pipeline_key_hash>
         upscale_pipelines;
 
+    webgpu_pipeline rwkv_wkv7_pipeline;
+
   public:
     ggml_webgpu_shader_lib(wgpu::Device device) { this->device = device; }
 
@@ -2012,6 +2015,15 @@ class ggml_webgpu_shader_lib {
         pipeline.context           = decisions;
         ssm_scan_pipelines[key]    = pipeline;
         return ssm_scan_pipelines[key];
+    }
+
+    webgpu_pipeline get_rwkv_wkv7_pipeline() {
+        if (!rwkv_wkv7_pipeline.pipeline) {
+            const std::vector<std::string> defines = { "HEAD_SIZE=" + std::to_string(GGML_WEBGPU_RWKV_WKV7_HEAD_SIZE) };
+            auto                           processed = preprocessor.preprocess(wgsl_rwkv_wkv7, defines);
+            rwkv_wkv7_pipeline                       = ggml_webgpu_create_pipeline(device, processed, "rwkv_wkv7");
+        }
+        return rwkv_wkv7_pipeline;
     }
 
     webgpu_pipeline get_gated_delta_net_pipeline(const ggml_webgpu_shader_lib_context & context) {
